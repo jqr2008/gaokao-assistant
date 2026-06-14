@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="高考志愿填报助手｜学姐帮你选学校不踩坑｜查大学、查分数、拿资料、约咨询">
+  <title>高考志愿填报助手 - 学姐帮你选学校</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ====== Header ====== -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <div>
+          <h1 class="logo-title">高考志愿填报助手</h1>
+          <p class="logo-sub">学姐帮你选学校，不踩坑</p>
+        </div>
+      </div>
+      <button class="header-cta" onclick="switchTab('consult')">加学姐微信</button>
+    </div>
+  </header>
+
+  <!-- ====== Tab 导航 ====== -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="home">
+      <span class="tab-icon">🏠</span>
+      <span class="tab-label">首页</span>
+    </button>
+    <button class="tab-btn" data-tab="university">
+      <span class="tab-icon">🏫</span>
+      <span class="tab-label">查大学</span>
+    </button>
+    <button class="tab-btn" data-tab="score">
+      <span class="tab-icon">📊</span>
+      <span class="tab-label">查分数</span>
+    </button>
+    <button class="tab-btn" data-tab="materials">
+      <span class="tab-icon">📚</span>
+      <span class="tab-label">资料包</span>
+    </button>
+    <button class="tab-btn" data-tab="consult">
+      <span class="tab-icon">💬</span>
+      <span class="tab-label">约咨询</span>
+    </button>
+  </nav>
+
+  <!-- ====== 主内容区 ====== -->
+  <main class="main-content">
+
+    <!-- ===== Tab 1: 首页 ===== -->
+    <section class="tab-content active" id="tab-home">
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-badge">🎉 2026 高考季</div>
+        <h2 class="hero-title">考得好，更要<strong>报得好</strong></h2>
+        <p class="hero-desc">七分考三分报，选错学校后悔四年。<br>学姐用真实数据帮你，不浪费每一分。</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="switchTab('university')">🔍 开始查大学</button>
+          <button class="btn btn-outline" onclick="switchTab('materials')">📚 看资料包</button>
+        </div>
+      </div>
+
+      <!-- 信任卖点 -->
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>数据全</h3>
+          <p>60+ 热门高校详细介绍<br>10 省近两年分数线<br>200+ 专业解读</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>懂你</h3>
+          <p>刚考完的学姐最懂你<br>站在学生视角推荐<br>不推销不制造焦虑</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>不贵</h3>
+          <p>资料包一杯奶茶钱<br>一对一咨询一杯火锅钱<br>帮你省下四年后悔</p>
+        </div>
+      </div>
+
+      <!-- 资料预览 -->
+      <div class="section-header">
+        <h2>📚 热门资料</h2>
+        <button class="link-btn" onclick="switchTab('materials')">查看全部 →</button>
+      </div>
+      <div class="material-preview-scroll" id="home-materials"></div>
+
+      <!-- 底部 CTA -->
+      <div class="cta-card">
+        <div class="cta-icon">🤔</div>
+        <h3>还是不知道选什么？</h3>
+        <p>不如直接问问学姐，30 分钟一对一沟通<br>帮你理清思路、避开天坑</p>
+        <button class="btn btn-primary btn-lg" onclick="switchTab('consult')">预约一对一咨询 · ¥49起</button>
+        <p class="cta-note">先咨询再付费，不满意不收费</p>
+      </div>
+    </section>
+
+    <!-- ===== Tab 2: 查大学 ===== -->
+    <section class="tab-content" id="tab-university">
+      <!-- 搜索区 -->
+      <div class="search-box">
+        <input type="text" id="uni-search" class="search-input" placeholder="搜大学名称、专业、城市...">
+      </div>
+
+      <!-- 筛选区 -->
+      <div class="filter-bar" id="uni-filters">
+        <select id="filter-province" class="filter-select">
+          <option value="">📍 全部省份</option>
+        </select>
+        <select id="filter-type" class="filter-select">
+          <option value="">🏷️ 全部类型</option>
+        </select>
+        <select id="filter-level" class="filter-select">
+          <option value="">⭐ 全部层次</option>
+          <option value="985">985</option>
+          <option value="211">211</option>
+          <option value="双一流">双一流</option>
+          <option value="普通本科">普通本科</option>
+        </select>
+        <label class="filter-check">
+          <input type="checkbox" id="filter-public"> 仅公办
+        </label>
+      </div>
+
+      <!-- 结果统计 -->
+      <div class="result-count" id="uni-count"></div>
+
+      <!-- 大学列表 -->
+      <div class="uni-list" id="uni-list"></div>
+
+      <!-- 空状态 -->
+      <div class="empty-state" id="uni-empty" style="display:none">
+        <div class="empty-icon">🔍</div>
+        <p>没有找到匹配的大学，试试换个关键词或放宽筛选条件</p>
+      </div>
+    </section>
+
+    <!-- ===== Tab 3: 查分数 ===== -->
+    <section class="tab-content" id="tab-score">
+      <div class="score-selectors">
+        <select id="score-province" class="filter-select">
+          <option value="">选择省份</option>
+        </select>
+        <select id="score-year" class="filter-select">
+          <option value="2025">2025年</option>
+          <option value="2024">2024年</option>
+        </select>
+        <select id="score-category" class="filter-select">
+          <option value="">选择科类</option>
+        </select>
+      </div>
+
+      <!-- 批次线展示 -->
+      <div class="score-card" id="batch-lines" style="display:none">
+        <h3>📋 批次分数线</h3>
+        <div id="batch-lines-content"></div>
+      </div>
+
+      <!-- 院校录取线 -->
+      <div class="score-card" id="uni-score-table" style="display:none">
+        <h3>🏫 院校录取参考（最低分 / 位次）</h3>
+        <div class="score-note">⚠️ 数据为参考值，具体以各省教育考试院公布为准</div>
+        <div class="table-wrap">
+          <table class="score-table">
+            <thead>
+              <tr><th>院校</th><th>最低分</th><th>最低位次</th></tr>
+            </thead>
+            <tbody id="uni-score-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="empty-state" id="score-empty">
+        <div class="empty-icon">📊</div>
+        <p>选择省份、年份和科类查看分数线</p>
+      </div>
+    </section>
+
+    <!-- ===== Tab 4: 资料包 ===== -->
+    <section class="tab-content" id="tab-materials">
+      <div class="section-header">
+        <h2>📚 志愿填报资料包</h2>
+        <p class="section-desc">学姐精心整理，帮你省去搜索时间</p>
+      </div>
+
+      <div class="materials-grid" id="materials-grid"></div>
+
+      <!-- 打包套餐 -->
+      <div class="bundle-card" id="bundle-card" style="display:none"></div>
+    </section>
+
+    <!-- ===== Tab 5: 约咨询 ===== -->
+    <section class="tab-content" id="tab-consult">
+      <div class="consult-hero">
+        <div class="consult-avatar">👩‍🎓</div>
+        <h2>一对一志愿填报咨询</h2>
+        <p>刚考完的学姐，用真实经验帮你</p>
+      </div>
+
+      <!-- 服务内容 -->
+      <div class="consult-services">
+        <div class="service-item">✅ 根据你的分数和排名推荐冲/稳/保院校</div>
+        <div class="service-item">✅ 结合你的性格和兴趣推荐适合专业</div>
+        <div class="service-item">✅ 帮你避开天坑专业和野鸡大学</div>
+        <div class="service-item">✅ 解答你关于大学的一切疑问</div>
+        <div class="service-item">✅ 女生的困扰我最懂：专业性别歧视？就业环境？</div>
+      </div>
+
+      <!-- 价格 -->
+      <div class="consult-pricing">
+        <div class="pricing-card">
+          <div class="pricing-title">📱 微信文字咨询</div>
+          <div class="pricing-price">¥49<span>/次</span></div>
+          <div class="pricing-detail">不限时间，把问题发过来<br>学姐看到就会认真回复</div>
+        </div>
+        <div class="pricing-card pricing-recommend">
+          <div class="pricing-badge">🌟 推荐</div>
+          <div class="pricing-title">📞 语音通话咨询</div>
+          <div class="pricing-price">¥99<span>/30分钟</span></div>
+          <div class="pricing-detail">微信语音深度沟通<br>更高效，当场解决你的困惑</div>
+        </div>
+      </div>
+
+      <!-- 预约表单 -->
+      <form class="consult-form" id="consult-form">
+        <h3>📝 预约咨询</h3>
+        <input type="text" id="consult-name" placeholder="你的昵称" required>
+        <input type="text" id="consult-wechat" placeholder="微信号（方便学姐联系你）" required>
+        <select id="consult-province" required>
+          <option value="">你所在的省份</option>
+        </select>
+        <input type="text" id="consult-score" placeholder="你的预估分数（可选）">
+        <textarea id="consult-question" placeholder="想了解什么？比如：想去XX城市、想学计算机、不知道选什么专业..."></textarea>
+        <button type="submit" class="btn btn-primary btn-lg btn-full">提交预约 · 学姐24小时内联系你</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ====== 悬浮加微信按钮 ====== -->
+  <div class="floating-cta" id="floating-cta">
+    <button class="float-btn" onclick="showWechatModal()">
+      <span class="float-icon">💬</span>
+      <span>加学姐微信</span>
+    </button>
+  </div>
+
+  <!-- ====== 微信二维码弹窗 ====== -->
+  <div class="modal" id="wechat-modal">
+    <div class="modal-backdrop" onclick="closeModal('wechat-modal')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('wechat-modal')">✕</button>
+      <div class="modal-icon">👩‍🎓</div>
+      <h3>加学姐微信</h3>
+      <p>扫码添加，备注「志愿填报」</p>
+      <div class="qrcode-placeholder">
+        <div class="qrcode-img">
+          <span>📱</span>
+          <p>请替换为你的<br>微信二维码</p>
+        </div>
+      </div>
+      <p class="modal-tip">微信号：<strong>your_wechat_id</strong></p>
+      <p class="modal-note">添加后可以先免费简单聊聊<br>觉得靠谱再购买资料或约咨询~</p>
+    </div>
+  </div>
+
+  <!-- ====== 资料购买弹窗 ====== -->
+  <div class="modal" id="buy-modal">
+    <div class="modal-backdrop" onclick="closeModal('buy-modal')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('buy-modal')">✕</button>
+      <div id="buy-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ====== Footer ====== -->
+  <footer class="footer">
+    <p>🎓 高考志愿填报助手 · 学姐帮你选学校</p>
+    <p class="footer-disclaimer">本工具数据仅供参考，志愿填报请以各省教育考试院官方发布为准</p>
+    <p class="footer-copy">© 2026 学姐的高考志愿助手</p>
+  </footer>
+
+  <!-- ====== 脚本 ====== -->
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
