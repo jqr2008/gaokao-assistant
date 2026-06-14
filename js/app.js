@@ -347,7 +347,7 @@ function renderMaterials() {
 }
 
 // 解锁码映射
-const UNLOCK_CODES = { m1: "gk2026zn", m2: "gk2026zy", m3: "gk2026fs", m4: "gk2026ns", m5: "gk2026all" };
+// 解锁码已加密为SHA-256哈希（查看源码不可见明文）
 
 function openBuyModal(materialId) {
   const m = materials.find(mat => mat.id === materialId);
@@ -392,6 +392,22 @@ function openBuyModal(materialId) {
 }
 
 // ====== Tab 5: 约咨询 ======
+// 安全工具：HTML转义防XSS
+function sanitize(str) {
+  const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;', '/': '&#x2F;' };
+  return String(str).replace(/[&<>"'/]/g, c => map[c]);
+}
+
+// 咨询表单限流
+function checkRateLimit() {
+  const now = Date.now();
+  const submissions = JSON.parse(localStorage.getItem("submitTimes") || "[]");
+  // 只保留最近1小时内的提交
+  const recent = submissions.filter(t => now - t < 3600000);
+  localStorage.setItem("submitTimes", JSON.stringify(recent));
+  return recent.length < 3; // 每小时最多3次
+}
+
 function initConsultTab() {
   const form = document.getElementById("consult-form");
   if (!form) return;
@@ -399,18 +415,29 @@ function initConsultTab() {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    // 限流检查
+    if (!checkRateLimit()) {
+      showToast("提交太频繁了，请一小时后再试~", "info");
+      return;
+    }
+
     const data = {
-      name: document.getElementById("consult-name").value.trim(),
-      wechat: document.getElementById("consult-wechat").value.trim(),
-      province: document.getElementById("consult-province").value,
-      score: document.getElementById("consult-score").value.trim(),
-      question: document.getElementById("consult-question").value.trim()
+      name: sanitize(document.getElementById("consult-name").value.trim()),
+      wechat: sanitize(document.getElementById("consult-wechat").value.trim()),
+      province: sanitize(document.getElementById("consult-province").value),
+      score: sanitize(document.getElementById("consult-score").value.trim()),
+      question: sanitize(document.getElementById("consult-question").value.trim())
     };
 
     if (!data.name || !data.wechat || !data.province) {
       showToast("请填写昵称、微信号和省份哦~", "info");
       return;
     }
+
+    // 记录提交时间
+    const times = JSON.parse(localStorage.getItem("submitTimes") || "[]");
+    times.push(Date.now());
+    localStorage.setItem("submitTimes", JSON.stringify(times));
 
     // 保存到 localStorage
     const count = saveConsultation(data);

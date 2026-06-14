@@ -36,7 +36,7 @@
   .unlock-bar button { background: var(--orange); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 700; white-space: nowrap; }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 
 <!-- 密码锁屏 -->
 <div class="lock-screen" id="lockScreen">
@@ -444,25 +444,35 @@
 
 <script>
 // 解锁码配置 —— 用户付款后你在微信上发对应密码
-const CODES = {
-  m1: "gk2026zn",    // 志愿填报完全指南
-  m2: "gk2026zy",    // 专业详解大全
-  m3: "gk2026fs",    // 分数线汇总
-  m4: "gk2026ns",    // 女生专属推荐
-  m5: "gk2026all"    // 全套大礼包（解锁全部）
+const CODE_HASHES = {
+  m1: "620f1849550801a8cde7ec489cc09dedcae7ae83f9aee496ed270ee5cebe772d",
+  m2: "cb3b92a51a60fe2ccabf5e9eb122d76c2222c4e0f3a327866eae8d1499205284",
+  m3: "27c3162c026f7faa0c9f8564e00cdfb6938777224401e4fbb2e29e61481bf0a1",
+  m4: "dfd045b6cff653a735bca79794fb66d831bf64342dd86771a78c47fd9f950f27",
+  m5: "ecb4fe692789bf4d39fa2cc2cb5e4b813de430ef1e109f62e88b4d0c5be8514b"
 };
 
 // 当前已解锁的资料
+async function sha256(msg) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(msg);
+  const hash = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+
 let unlocked = JSON.parse(sessionStorage.getItem("unlockedMaterials") || "[]");
 
-function unlock() {
+async function unlock() {
   const input = document.getElementById("codeInput").value.trim();
   const errorEl = document.getElementById("lockError");
 
+  if (!input) { errorEl.style.display = "block"; return; }
+  const inputHash = await sha256(input);
   let matched = null;
-  for (const [key, code] of Object.entries(CODES)) {
-    if (input === code) { matched = key; break; }
+  for (const [key, hash] of Object.entries(CODE_HASHES)) {
+    if (inputHash === hash) { matched = key; break; }
   }
+  if (!matched) { errorEl.style.display = "block"; return; }
 
   if (!matched) {
     errorEl.style.display = "block";
@@ -504,11 +514,13 @@ function showContent(materialId) {
   window.scrollTo(0, 0);
 }
 
-function switchMaterial() {
+async function switchMaterial() {
   const input = document.getElementById("switchCode").value.trim();
+  if (!input) return;
+  const inputHash = await sha256(input);
   let matched = null;
-  for (const [key, code] of Object.entries(CODES)) {
-    if (input === code) { matched = key; break; }
+  for (const [key, hash] of Object.entries(CODE_HASHES)) {
+    if (inputHash === hash) { matched = key; break; }
   }
   if (matched) {
     if (matched === "m5") {
