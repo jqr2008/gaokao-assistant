@@ -75,20 +75,27 @@ function formatLevel(level) {
   ).join("");
 }
 
+/** 获取实际查询年份（2026映射到2025） */
+function resolveYear(year) {
+  return year === "2026" ? "2025" : year;
+}
+
 /** 获取省份分数线 */
 function getProvinceScores(province, year, category) {
+  const actualYear = resolveYear(year);
   const pData = provinceScores[province];
   if (!pData) return null;
-  const yData = pData[year];
+  const yData = pData[actualYear];
   if (!yData) return null;
   return yData[category] || null;
 }
 
 /** 获取大学在某省的录取分数 */
 function getUniScores(province, year, category) {
+  const actualYear = resolveYear(year);
   const pData = uniScores[province];
   if (!pData) return [];
-  const yData = pData[year];
+  const yData = pData[actualYear];
   if (!yData) return [];
   return yData[category] || [];
 }

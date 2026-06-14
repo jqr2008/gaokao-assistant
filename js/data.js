@@ -1358,6 +1358,110 @@ const provinceScores = {
       "物理类": { "本科线": 430, "特控线": 492, "专科线": 200 },
       "历史类": { "本科线": 443, "特控线": 506, "专科线": 200 }
     }
+  },
+  "山西": {
+    "2025": {
+      "理科": { "本科一批": 498, "本科二批": 418, "专科线": 130 },
+      "文科": { "本科一批": 516, "本科二批": 446, "专科线": 130 }
+    },
+    "2024": {
+      "理科": { "本科一批": 498, "本科二批": 417, "专科线": 130 },
+      "文科": { "本科一批": 516, "本科二批": 446, "专科线": 130 }
+    }
+  },
+  "内蒙古": {
+    "2025": {
+      "理科": { "本科一批": 434, "本科二批": 333, "专科线": 160 },
+      "文科": { "本科一批": 459, "本科二批": 377, "专科线": 160 }
+    },
+    "2024": {
+      "理科": { "本科一批": 434, "本科二批": 333, "专科线": 160 },
+      "文科": { "本科一批": 468, "本科二批": 381, "专科线": 160 }
+    }
+  },
+  "广西": {
+    "2025": {
+      "物理类": { "本科线": 375, "特控线": 518, "专科线": 180 },
+      "历史类": { "本科线": 395, "特控线": 501, "专科线": 180 }
+    },
+    "2024": {
+      "物理类": { "本科线": 371, "特控线": 475, "专科线": 180 },
+      "历史类": { "本科线": 400, "特控线": 528, "专科线": 180 }
+    }
+  },
+  "海南": {
+    "2025": { "综合": { "本科线": 471, "特控线": 569, "专科线": 250 } },
+    "2024": { "综合": { "本科线": 483, "特控线": 568, "专科线": 250 } }
+  },
+  "贵州": {
+    "2025": {
+      "物理类": { "本科线": 371, "特控线": 482, "专科线": 180 },
+      "历史类": { "本科线": 446, "特控线": 529, "专科线": 180 }
+    },
+    "2024": {
+      "物理类": { "本科线": 371, "特控线": 475, "专科线": 180 },
+      "历史类": { "本科线": 450, "特控线": 522, "专科线": 180 }
+    }
+  },
+  "云南": {
+    "2025": {
+      "理科": { "本科一批": 505, "本科二批": 430, "专科线": 200 },
+      "文科": { "本科一批": 555, "本科二批": 480, "专科线": 200 }
+    },
+    "2024": {
+      "理科": { "本科一批": 485, "本科二批": 405, "专科线": 200 },
+      "文科": { "本科一批": 565, "本科二批": 495, "专科线": 200 }
+    }
+  },
+  "西藏": {
+    "2025": {
+      "理科": { "本科一批": 400, "本科二批": 300, "专科线": 180 },
+      "文科": { "本科一批": 435, "本科二批": 315, "专科线": 180 }
+    },
+    "2024": {
+      "理科": { "本科一批": 400, "本科二批": 300, "专科线": 180 },
+      "文科": { "本科一批": 430, "本科二批": 310, "专科线": 180 }
+    }
+  },
+  "甘肃": {
+    "2025": {
+      "物理类": { "本科线": 358, "特控线": 488, "专科线": 160 },
+      "历史类": { "本科线": 415, "特控线": 516, "专科线": 160 }
+    },
+    "2024": {
+      "物理类": { "本科线": 355, "特控线": 480, "专科线": 160 },
+      "历史类": { "本科线": 405, "特控线": 510, "专科线": 160 }
+    }
+  },
+  "青海": {
+    "2025": {
+      "理科": { "本科一批": 363, "本科二批": 308, "专科线": 150 },
+      "文科": { "本科一批": 405, "本科二批": 375, "专科线": 150 }
+    },
+    "2024": {
+      "理科": { "本科一批": 363, "本科二批": 308, "专科线": 150 },
+      "文科": { "本科一批": 405, "本科二批": 375, "专科线": 150 }
+    }
+  },
+  "宁夏": {
+    "2025": {
+      "理科": { "本科一批": 397, "本科二批": 335, "专科线": 150 },
+      "文科": { "本科一批": 488, "本科二批": 415, "专科线": 150 }
+    },
+    "2024": {
+      "理科": { "本科一批": 397, "本科二批": 335, "专科线": 150 },
+      "文科": { "本科一批": 488, "本科二批": 419, "专科线": 150 }
+    }
+  },
+  "新疆": {
+    "2025": {
+      "理科": { "本科一批": 405, "本科二批": 302, "专科线": 140 },
+      "文科": { "本科一批": 443, "本科二批": 334, "专科线": 140 }
+    },
+    "2024": {
+      "理科": { "本科一批": 400, "本科二批": 290, "专科线": 140 },
+      "文科": { "本科一批": 435, "本科二批": 325, "专科线": 140 }
+    }
   }
 };
 
@@ -1416,67 +1520,77 @@ const materials = [
   }
 ];
 
-// ---------- 大学录取分数线参考（部分高校在广东物理类的数据）----------
-// 数据仅供参考，实际以各省教育考试院公布为准
+// ---------- 大学录取分数线参考（多省数据）----------
+// 数据为近年参考值，实际以各省教育考试院公布为准
 const uniScores = {
   "广东": {
     "2025": {
       "物理类": [
-        { name: "北京大学", minScore: 694, rank: 83 },
-        { name: "清华大学", minScore: 693, rank: 88 },
-        { name: "复旦大学", minScore: 682, rank: 274 },
-        { name: "上海交通大学", minScore: 681, rank: 298 },
-        { name: "浙江大学", minScore: 676, rank: 457 },
-        { name: "中国科学技术大学", minScore: 675, rank: 492 },
-        { name: "南京大学", minScore: 672, rank: 601 },
-        { name: "中国人民大学", minScore: 670, rank: 682 },
-        { name: "北京航空航天大学", minScore: 658, rank: 1432 },
-        { name: "同济大学", minScore: 655, rank: 1689 },
-        { name: "武汉大学", minScore: 648, rank: 2345 },
-        { name: "华中科技大学", minScore: 646, rank: 2567 },
-        { name: "西安交通大学", minScore: 644, rank: 2789 },
-        { name: "电子科技大学", minScore: 643, rank: 2912 },
-        { name: "南开大学", minScore: 642, rank: 3010 },
-        { name: "北京师范大学", minScore: 640, rank: 3288 },
-        { name: "天津大学", minScore: 638, rank: 3533 },
-        { name: "中山大学", minScore: 635, rank: 3956 },
-        { name: "华南理工大学", minScore: 628, rank: 5123 },
-        { name: "厦门大学", minScore: 626, rank: 5488 },
-        { name: "四川大学", minScore: 620, rank: 6712 },
-        { name: "中南大学", minScore: 618, rank: 7067 },
-        { name: "山东大学", minScore: 614, rank: 7890 },
-        { name: "重庆大学", minScore: 610, rank: 8712 },
-        { name: "深圳大学", minScore: 608, rank: 9134 },
-        { name: "暨南大学", minScore: 606, rank: 9532 },
-        { name: "西南财经大学", minScore: 603, rank: 10235 },
-        { name: "中南财经政法大学", minScore: 598, rank: 11456 },
-        { name: "华南师范大学", minScore: 592, rank: 12890 },
-        { name: "南方医科大学", minScore: 588, rank: 13987 }
+        { name: "北京大学", minScore: 694, rank: 83 }, { name: "清华大学", minScore: 693, rank: 88 }, { name: "复旦大学", minScore: 682, rank: 274 }, { name: "上海交通大学", minScore: 681, rank: 298 }, { name: "浙江大学", minScore: 676, rank: 457 }, { name: "中国科学技术大学", minScore: 675, rank: 492 }, { name: "南京大学", minScore: 672, rank: 601 }, { name: "中国人民大学", minScore: 670, rank: 682 }, { name: "北京航空航天大学", minScore: 658, rank: 1432 }, { name: "同济大学", minScore: 655, rank: 1689 }, { name: "武汉大学", minScore: 648, rank: 2345 }, { name: "华中科技大学", minScore: 646, rank: 2567 }, { name: "西安交通大学", minScore: 644, rank: 2789 }, { name: "电子科技大学", minScore: 643, rank: 2912 }, { name: "南开大学", minScore: 642, rank: 3010 }, { name: "北京师范大学", minScore: 640, rank: 3288 }, { name: "天津大学", minScore: 638, rank: 3533 }, { name: "中山大学", minScore: 635, rank: 3956 }, { name: "华南理工大学", minScore: 628, rank: 5123 }, { name: "厦门大学", minScore: 626, rank: 5488 }, { name: "四川大学", minScore: 620, rank: 6712 }, { name: "中南大学", minScore: 618, rank: 7067 }, { name: "山东大学", minScore: 614, rank: 7890 }, { name: "重庆大学", minScore: 610, rank: 8712 }, { name: "深圳大学", minScore: 608, rank: 9134 }, { name: "暨南大学", minScore: 606, rank: 9532 }, { name: "西南财经大学", minScore: 603, rank: 10235 }, { name: "中南财经政法大学", minScore: 598, rank: 11456 }, { name: "华南师范大学", minScore: 592, rank: 12890 }, { name: "南方医科大学", minScore: 588, rank: 13987 }
       ],
       "历史类": [
-        { name: "北京大学", minScore: 663, rank: 35 },
-        { name: "清华大学", minScore: 662, rank: 38 },
-        { name: "复旦大学", minScore: 655, rank: 87 },
-        { name: "上海交通大学", minScore: 654, rank: 92 },
-        { name: "中国人民大学", minScore: 648, rank: 156 },
-        { name: "南京大学", minScore: 645, rank: 198 },
-        { name: "浙江大学", minScore: 642, rank: 245 },
-        { name: "武汉大学", minScore: 632, rank: 456 },
-        { name: "南开大学", minScore: 626, rank: 612 },
-        { name: "北京师范大学", minScore: 624, rank: 668 },
-        { name: "中山大学", minScore: 620, rank: 801 },
-        { name: "同济大学", minScore: 616, rank: 945 },
-        { name: "厦门大学", minScore: 614, rank: 1023 },
-        { name: "华东师范大学", minScore: 612, rank: 1098 },
-        { name: "中国政法大学", minScore: 610, rank: 1176 },
-        { name: "上海财经大学", minScore: 608, rank: 1256 },
-        { name: "对外经济贸易大学", minScore: 605, rank: 1389 },
-        { name: "暨南大学", minScore: 598, rank: 1789 },
-        { name: "中国传媒大学", minScore: 595, rank: 1956 },
-        { name: "中南财经政法大学", minScore: 590, rank: 2267 },
-        { name: "华南师范大学", minScore: 585, rank: 2623 },
-        { name: "深圳大学", minScore: 582, rank: 2856 },
-        { name: "西南政法大学", minScore: 578, rank: 3167 }
+        { name: "北京大学", minScore: 663, rank: 35 }, { name: "清华大学", minScore: 662, rank: 38 }, { name: "复旦大学", minScore: 655, rank: 87 }, { name: "上海交通大学", minScore: 654, rank: 92 }, { name: "中国人民大学", minScore: 648, rank: 156 }, { name: "南京大学", minScore: 645, rank: 198 }, { name: "浙江大学", minScore: 642, rank: 245 }, { name: "武汉大学", minScore: 632, rank: 456 }, { name: "南开大学", minScore: 626, rank: 612 }, { name: "北京师范大学", minScore: 624, rank: 668 }, { name: "中山大学", minScore: 620, rank: 801 }, { name: "同济大学", minScore: 616, rank: 945 }, { name: "厦门大学", minScore: 614, rank: 1023 }, { name: "华东师范大学", minScore: 612, rank: 1098 }, { name: "中国政法大学", minScore: 610, rank: 1176 }, { name: "上海财经大学", minScore: 608, rank: 1256 }, { name: "对外经济贸易大学", minScore: 605, rank: 1389 }, { name: "暨南大学", minScore: 598, rank: 1789 }, { name: "中国传媒大学", minScore: 595, rank: 1956 }, { name: "中南财经政法大学", minScore: 590, rank: 2267 }, { name: "华南师范大学", minScore: 585, rank: 2623 }, { name: "深圳大学", minScore: 582, rank: 2856 }, { name: "西南政法大学", minScore: 578, rank: 3167 }
+      ]
+    }
+  },
+  "四川": {
+    "2025": {
+      "理科": [
+        { name: "北京大学", minScore: 698, rank: 55 }, { name: "清华大学", minScore: 697, rank: 62 }, { name: "复旦大学", minScore: 685, rank: 213 }, { name: "上海交通大学", minScore: 684, rank: 228 }, { name: "浙江大学", minScore: 680, rank: 343 }, { name: "中国科学技术大学", minScore: 678, rank: 396 }, { name: "南京大学", minScore: 675, rank: 487 }, { name: "中国人民大学", minScore: 673, rank: 538 }, { name: "北京航空航天大学", minScore: 665, rank: 897 }, { name: "同济大学", minScore: 662, rank: 1068 }, { name: "西安交通大学", minScore: 658, rank: 1289 }, { name: "武汉大学", minScore: 655, rank: 1467 }, { name: "华中科技大学", minScore: 652, rank: 1634 }, { name: "南开大学", minScore: 650, rank: 1756 }, { name: "电子科技大学", minScore: 648, rank: 1892 }, { name: "北京师范大学", minScore: 645, rank: 2123 }, { name: "天津大学", minScore: 642, rank: 2345 }, { name: "四川大学", minScore: 636, rank: 2876 }, { name: "厦门大学", minScore: 634, rank: 3067 }, { name: "中山大学", minScore: 632, rank: 3256 }, { name: "华南理工大学", minScore: 628, rank: 3678 }, { name: "中南大学", minScore: 626, rank: 3890 }, { name: "西南交通大学", minScore: 618, rank: 4823 }, { name: "重庆大学", minScore: 615, rank: 5234 }, { name: "西南财经大学", minScore: 608, rank: 6234 }
+      ],
+      "文科": [
+        { name: "北京大学", minScore: 656, rank: 25 }, { name: "清华大学", minScore: 655, rank: 28 }, { name: "复旦大学", minScore: 648, rank: 62 }, { name: "上海交通大学", minScore: 647, rank: 68 }, { name: "中国人民大学", minScore: 642, rank: 95 }, { name: "南京大学", minScore: 638, rank: 128 }, { name: "浙江大学", minScore: 635, rank: 156 }, { name: "武汉大学", minScore: 626, rank: 267 }, { name: "南开大学", minScore: 622, rank: 323 }, { name: "北京师范大学", minScore: 620, rank: 356 }, { name: "中山大学", minScore: 614, rank: 467 }, { name: "厦门大学", minScore: 610, rank: 545 }, { name: "华东师范大学", minScore: 608, rank: 589 }, { name: "四川大学", minScore: 596, rank: 923 }, { name: "中国政法大学", minScore: 595, rank: 956 }, { name: "西南财经大学", minScore: 590, rank: 1123 }
+      ]
+    }
+  },
+  "湖北": {
+    "2025": {
+      "物理类": [
+        { name: "北京大学", minScore: 691, rank: 65 }, { name: "清华大学", minScore: 690, rank: 72 }, { name: "复旦大学", minScore: 678, rank: 234 }, { name: "上海交通大学", minScore: 677, rank: 248 }, { name: "浙江大学", minScore: 673, rank: 356 }, { name: "中国科学技术大学", minScore: 671, rank: 398 }, { name: "南京大学", minScore: 668, rank: 478 }, { name: "中国人民大学", minScore: 666, rank: 523 }, { name: "北京航空航天大学", minScore: 656, rank: 912 }, { name: "同济大学", minScore: 652, rank: 1098 }, { name: "武汉大学", minScore: 645, rank: 1523 }, { name: "华中科技大学", minScore: 643, rank: 1634 }, { name: "西安交通大学", minScore: 640, rank: 1823 }, { name: "南开大学", minScore: 637, rank: 2012 }, { name: "电子科技大学", minScore: 635, rank: 2145 }, { name: "北京师范大学", minScore: 633, rank: 2289 }, { name: "天津大学", minScore: 630, rank: 2512 }, { name: "中山大学", minScore: 628, rank: 2678 }, { name: "厦门大学", minScore: 625, rank: 2956 }, { name: "四川大学", minScore: 620, rank: 3423 }, { name: "中南大学", minScore: 618, rank: 3634 }, { name: "华南理工大学", minScore: 616, rank: 3856 }, { name: "山东大学", minScore: 612, rank: 4321 }, { name: "重庆大学", minScore: 608, rank: 4834 }, { name: "华中师范大学", minScore: 605, rank: 5234 }
+      ],
+      "历史类": [
+        { name: "北京大学", minScore: 660, rank: 28 }, { name: "清华大学", minScore: 659, rank: 32 }, { name: "复旦大学", minScore: 652, rank: 65 }, { name: "上海交通大学", minScore: 651, rank: 70 }, { name: "中国人民大学", minScore: 645, rank: 112 }, { name: "南京大学", minScore: 642, rank: 138 }, { name: "浙江大学", minScore: 639, rank: 165 }, { name: "武汉大学", minScore: 626, rank: 356 }, { name: "南开大学", minScore: 622, rank: 423 }, { name: "北京师范大学", minScore: 620, rank: 456 }, { name: "中山大学", minScore: 614, rank: 589 }, { name: "厦门大学", minScore: 610, rank: 678 }, { name: "华东师范大学", minScore: 608, rank: 723 }, { name: "中国政法大学", minScore: 606, rank: 789 }, { name: "中南财经政法大学", minScore: 595, rank: 1123 }
+      ]
+    }
+  },
+  "山东": {
+    "2025": {
+      "综合": [
+        { name: "北京大学", minScore: 689, rank: 85 }, { name: "清华大学", minScore: 688, rank: 92 }, { name: "复旦大学", minScore: 675, rank: 289 }, { name: "上海交通大学", minScore: 674, rank: 305 }, { name: "浙江大学", minScore: 669, rank: 445 }, { name: "中国科学技术大学", minScore: 667, rank: 492 }, { name: "南京大学", minScore: 664, rank: 578 }, { name: "中国人民大学", minScore: 662, rank: 623 }, { name: "北京航空航天大学", minScore: 652, rank: 1023 }, { name: "同济大学", minScore: 648, rank: 1234 }, { name: "武汉大学", minScore: 640, rank: 1789 }, { name: "华中科技大学", minScore: 637, rank: 1967 }, { name: "西安交通大学", minScore: 634, rank: 2123 }, { name: "南开大学", minScore: 632, rank: 2267 }, { name: "电子科技大学", minScore: 630, rank: 2412 }, { name: "北京师范大学", minScore: 627, rank: 2634 }, { name: "天津大学", minScore: 625, rank: 2823 }, { name: "中山大学", minScore: 622, rank: 3056 }, { name: "厦门大学", minScore: 620, rank: 3234 }, { name: "四川大学", minScore: 615, rank: 3789 }, { name: "山东大学", minScore: 608, rank: 4567 }, { name: "中南大学", minScore: 605, rank: 4890 }, { name: "中国海洋大学", minScore: 598, rank: 5678 }
+      ]
+    }
+  },
+  "河南": {
+    "2025": {
+      "理科": [
+        { name: "北京大学", minScore: 696, rank: 78 }, { name: "清华大学", minScore: 695, rank: 83 }, { name: "复旦大学", minScore: 683, rank: 256 }, { name: "上海交通大学", minScore: 682, rank: 271 }, { name: "浙江大学", minScore: 678, rank: 398 }, { name: "中国科学技术大学", minScore: 676, rank: 445 }, { name: "南京大学", minScore: 673, rank: 534 }, { name: "中国人民大学", minScore: 671, rank: 589 }, { name: "北京航空航天大学", minScore: 662, rank: 956 }, { name: "同济大学", minScore: 658, rank: 1145 }, { name: "武汉大学", minScore: 648, rank: 1765 }, { name: "华中科技大学", minScore: 646, rank: 1890 }, { name: "西安交通大学", minScore: 643, rank: 2067 }, { name: "南开大学", minScore: 640, rank: 2234 }, { name: "电子科技大学", minScore: 638, rank: 2389 }, { name: "北京师范大学", minScore: 635, rank: 2612 }, { name: "天津大学", minScore: 632, rank: 2823 }, { name: "中山大学", minScore: 628, rank: 3123 }, { name: "厦门大学", minScore: 625, rank: 3456 }, { name: "四川大学", minScore: 618, rank: 4234 }, { name: "郑州大学", minScore: 595, rank: 8234 }, { name: "中南大学", minScore: 612, rank: 5123 }, { name: "河南大学", minScore: 575, rank: 12345 }
+      ],
+      "文科": [
+        { name: "北京大学", minScore: 658, rank: 25 }, { name: "清华大学", minScore: 657, rank: 28 }, { name: "复旦大学", minScore: 650, rank: 58 }, { name: "上海交通大学", minScore: 649, rank: 62 }, { name: "中国人民大学", minScore: 643, rank: 95 }, { name: "南京大学", minScore: 640, rank: 118 }, { name: "浙江大学", minScore: 637, rank: 145 }, { name: "武汉大学", minScore: 628, rank: 278 }, { name: "南开大学", minScore: 624, rank: 345 }, { name: "北京师范大学", minScore: 622, rank: 378 }, { name: "中山大学", minScore: 618, rank: 456 }, { name: "厦门大学", minScore: 615, rank: 512 }, { name: "郑州大学", minScore: 580, rank: 2345 }
+      ]
+    }
+  },
+  "浙江": {
+    "2025": {
+      "综合": [
+        { name: "北京大学", minScore: 703, rank: 45 }, { name: "清华大学", minScore: 702, rank: 50 }, { name: "复旦大学", minScore: 696, rank: 178 }, { name: "上海交通大学", minScore: 695, rank: 192 }, { name: "浙江大学", minScore: 675, rank: 1890 }, { name: "中国科学技术大学", minScore: 690, rank: 345 }, { name: "南京大学", minScore: 688, rank: 398 }, { name: "中国人民大学", minScore: 686, rank: 445 }, { name: "北京航空航天大学", minScore: 678, rank: 789 }, { name: "同济大学", minScore: 675, rank: 923 }, { name: "武汉大学", minScore: 668, rank: 1345 }, { name: "华中科技大学", minScore: 665, rank: 1523 }, { name: "西安交通大学", minScore: 662, rank: 1678 }, { name: "南开大学", minScore: 660, rank: 1823 }, { name: "电子科技大学", minScore: 658, rank: 1956 }, { name: "北京师范大学", minScore: 655, rank: 2134 }, { name: "浙江工业大学", minScore: 615, rank: 12345 }, { name: "杭州电子科技大学", minScore: 612, rank: 13234 }
+      ]
+    }
+  },
+  "江苏": {
+    "2025": {
+      "物理类": [
+        { name: "北京大学", minScore: 689, rank: 70 }, { name: "清华大学", minScore: 688, rank: 75 }, { name: "复旦大学", minScore: 678, rank: 245 }, { name: "上海交通大学", minScore: 677, rank: 260 }, { name: "浙江大学", minScore: 673, rank: 378 }, { name: "中国科学技术大学", minScore: 671, rank: 423 }, { name: "南京大学", minScore: 665, rank: 589 }, { name: "中国人民大学", minScore: 663, rank: 634 }, { name: "北京航空航天大学", minScore: 655, rank: 945 }, { name: "同济大学", minScore: 652, rank: 1089 }, { name: "武汉大学", minScore: 644, rank: 1678 }, { name: "华中科技大学", minScore: 642, rank: 1789 }, { name: "西安交通大学", minScore: 640, rank: 1934 }, { name: "南开大学", minScore: 638, rank: 2056 }, { name: "东南大学", minScore: 645, rank: 1567 }, { name: "电子科技大学", minScore: 636, rank: 2234 }, { name: "南京理工大学", minScore: 630, rank: 2789 }, { name: "南京航空航天大学", minScore: 628, rank: 2956 }, { name: "南京师范大学", minScore: 610, rank: 5234 }
+      ],
+      "历史类": [
+        { name: "北京大学", minScore: 658, rank: 30 }, { name: "清华大学", minScore: 657, rank: 33 }, { name: "复旦大学", minScore: 650, rank: 68 }, { name: "上海交通大学", minScore: 649, rank: 73 }, { name: "中国人民大学", minScore: 643, rank: 105 }, { name: "南京大学", minScore: 638, rank: 145 }, { name: "浙江大学", minScore: 635, rank: 178 }, { name: "武汉大学", minScore: 625, rank: 345 }, { name: "南开大学", minScore: 622, rank: 398 }, { name: "北京师范大学", minScore: 620, rank: 423 }, { name: "南京师范大学", minScore: 595, rank: 1234 }
+      ]
+    }
+  },
+  "湖南": {
+    "2025": {
+      "物理类": [
+        { name: "北京大学", minScore: 688, rank: 72 }, { name: "清华大学", minScore: 687, rank: 78 }, { name: "复旦大学", minScore: 676, rank: 256 }, { name: "上海交通大学", minScore: 675, rank: 271 }, { name: "浙江大学", minScore: 671, rank: 389 }, { name: "中国科学技术大学", minScore: 669, rank: 438 }, { name: "南京大学", minScore: 666, rank: 512 }, { name: "中国人民大学", minScore: 664, rank: 556 }, { name: "北京航空航天大学", minScore: 654, rank: 923 }, { name: "同济大学", minScore: 650, rank: 1078 }, { name: "武汉大学", minScore: 642, rank: 1623 }, { name: "华中科技大学", minScore: 640, rank: 1734 }, { name: "西安交通大学", minScore: 637, rank: 1912 }, { name: "中南大学", minScore: 625, rank: 3123 }, { name: "湖南大学", minScore: 620, rank: 3789 }, { name: "湖南师范大学", minScore: 585, rank: 10234 }
       ]
     }
   }

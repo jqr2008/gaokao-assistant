@@ -206,6 +206,7 @@ function updateCategorySelect() {
   const province = document.getElementById("score-province").value;
   const year = document.getElementById("score-year").value;
   const categorySelect = document.getElementById("score-category");
+  const actualYear = resolveYear(year);
 
   if (!province || !year) {
     categorySelect.innerHTML = '<option value="">选择科类</option>';
@@ -213,12 +214,12 @@ function updateCategorySelect() {
   }
 
   const pData = provinceScores[province];
-  if (!pData || !pData[year]) {
+  if (!pData || !pData[actualYear]) {
     categorySelect.innerHTML = '<option value="">选择科类</option>';
     return;
   }
 
-  const categories = Object.keys(pData[year]);
+  const categories = Object.keys(pData[actualYear]);
   categorySelect.innerHTML = '<option value="">选择科类</option>' +
     categories.map(c => `<option value="${c}">${c}</option>`).join("");
 }
@@ -239,6 +240,13 @@ function updateScoreTab() {
   }
 
   scoreEmpty.style.display = "none";
+
+  // 2026预估提示
+  if (year === "2026") {
+    batchLinesCard.querySelector("h3").innerHTML = "📋 批次分数线（2026预估 · 参考2025年数据）";
+  } else {
+    batchLinesCard.querySelector("h3").innerHTML = "📋 批次分数线";
+  }
 
   // 批次线
   const batchData = getProvinceScores(province, year, category);
