@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资料解锁 · 2026高考志愿助手</title>
+<style>
+  :root { --orange: #FF6B35; --bg: #FFFAF5; --text: #2D2D2D; --radius: 12px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); max-width: 500px; margin: 0 auto; padding: 20px; min-height: 100vh; }
+  .lock-screen { text-align: center; padding: 60px 20px; }
+  .lock-icon { font-size: 64px; margin-bottom: 16px; }
+  .lock-screen h2 { font-size: 22px; margin-bottom: 8px; }
+  .lock-screen p { color: #999; font-size: 14px; margin-bottom: 24px; }
+  .lock-input { width: 100%; max-width: 280px; padding: 14px; border: 2px solid #eee; border-radius: 24px; font-size: 16px; text-align: center; outline: none; margin-bottom: 12px; }
+  .lock-input:focus { border-color: var(--orange); }
+  .lock-btn { background: var(--orange); color: white; border: none; padding: 14px 40px; border-radius: 24px; font-size: 16px; font-weight: 700; cursor: pointer; }
+  .lock-error { color: #e74c3c; font-size: 13px; margin-top: 8px; display: none; }
+  .content { display: none; animation: fadeIn 0.5s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .content h2 { font-size: 20px; margin: 20px 0 12px; padding-bottom: 8px; border-bottom: 3px solid var(--orange); }
+  .content h3 { font-size: 16px; margin: 16px 0 8px; color: var(--orange); }
+  .content p, .content li { font-size: 14px; line-height: 1.8; color: #555; }
+  .content ul { padding-left: 20px; margin: 8px 0; }
+  .content table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  .content th { background: #FFF0E8; padding: 10px 12px; text-align: left; font-weight: 700; }
+  .content td { padding: 10px 12px; border-bottom: 1px solid #f0e8e0; }
+  .content tr:hover td { background: #fffaf5; }
+  .tip-box { background: #FFF8E1; border-left: 4px solid #F2994A; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-size: 13px; }
+  .warn-box { background: #FFEBEE; border-left: 4px solid #e74c3c; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-size: 13px; }
+  .good-box { background: #E8F5E9; border-left: 4px solid #27AE60; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-size: 13px; }
+  .back-link { display: inline-block; margin-top: 24px; color: var(--orange); text-decoration: none; font-weight: 600; }
+  .score-table-wrap { overflow-x: auto; margin: 12px 0; }
+  .unlock-bar { background: white; border-radius: var(--radius); padding: 16px; margin-bottom: 16px; display: flex; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .unlock-bar input { flex: 1; padding: 10px; border: 1.5px solid #eee; border-radius: 20px; font-size: 14px; outline: none; }
+  .unlock-bar button { background: var(--orange); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 700; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- 密码锁屏 -->
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-icon">🔐</div>
+  <h2>请输入解锁码</h2>
+  <p>购买资料后，学姐会把解锁码发给你</p>
+  <input type="text" class="lock-input" id="codeInput" placeholder="输入解锁码" autofocus>
+  <br>
+  <button class="lock-btn" onclick="unlock()">🔓 解锁查看</button>
+  <p class="lock-error" id="lockError">解锁码不对哦，再检查一下~</p>
+  <p style="margin-top:24px;font-size:12px;color:#bbb;">
+    还没有解锁码？<br>加学姐微信 <strong style="color:var(--orange)">k77m10n10</strong> 购买资料
+  </p>
+</div>
+
+<!-- ============== 资料内容区 ============== -->
+<div class="content" id="contentArea">
+
+  <!-- 顶部切换栏 -->
+  <div class="unlock-bar">
+    <input type="text" id="switchCode" placeholder="输入其他解锁码切换资料">
+    <button onclick="switchMaterial()">切换</button>
+  </div>
+  <p style="font-size:12px;color:#999;margin-bottom:16px;">✅ 当前已解锁：<span id="unlockedTag" style="color:var(--orange);font-weight:700;"></span></p>
+
+  <!-- ====== 资料1: 志愿填报完全指南 ====== -->
+  <div id="content-m1" class="material-section" style="display:none">
+    <h2>📕 2026高考志愿填报完全指南</h2>
+
+    <h3>一、志愿填报基本流程</h3>
+    <p>高考出分 → 查全省排名（位次）→ 参考近3年录取位次 → 确定冲/稳/保院校 → 网上填报 → 等待录取</p>
+    <div class="tip-box">💡 <strong>关键：看位次不看分数！</strong>每年试卷难度不同，分数线会变，但大学录取的全省排名（位次）基本稳定</div>
+
+    <h3>二、平行志愿规则详解</h3>
+    <p>平行志愿的核心原则：<strong>分数优先、遵循志愿、一轮投档</strong></p>
+    <ul>
+      <li><strong>分数优先：</strong>全省考生按分数排队，高分先挑</li>
+      <li><strong>遵循志愿：</strong>系统按你填的顺序依次检索</li>
+      <li><strong>一轮投档：</strong>档案一旦投出，后面志愿作废</li>
+    </ul>
+    <div class="warn-box">⚠️ <strong>最危险的事：</strong>被A校提档后又退档 → 本批次所有志愿全部作废 → 只能等征集志愿或下一批次！所以<strong>不同意调剂一定要慎重</strong></div>
+
+    <h3>三、冲稳保策略</h3>
+    <table>
+      <tr><th>策略</th><th>位次范围</th><th>选几所</th><th>说明</th></tr>
+      <tr><td>🚀 冲</td><td>比你高5%-10%</td><td>2-3所</td><td>理想院校，运气好能上</td></tr>
+      <tr><td>✅ 稳</td><td>和你差不多</td><td>3-4所</td><td>大概率能上，主力志愿</td></tr>
+      <tr><td>🛡️ 保</td><td>比你低10%-20%</td><td>2-3所</td><td>兜底，确保有学上</td></tr>
+    </table>
+
+    <h3>四、各批次说明</h3>
+    <ul>
+      <li><strong>提前批：</strong>军校、公安、公费师范、定向医学生等。录取了就不能参加后面批次</li>
+      <li><strong>本科批：</strong>绝大多数考生走这个批次，平行志愿</li>
+      <li><strong>专科批：</strong>高职高专，部分专业就业也不错</li>
+    </ul>
+
+    <h3>五、常见退档原因（避坑！）</h3>
+    <div class="warn-box">
+      ❌ <strong>不服从调剂</strong>（最常见！分数够了但专业分不够）<br>
+      ❌ 体检不合格（色盲报医学、高度近视报飞行等）<br>
+      ❌ 单科成绩不达标（外语专业要英语分、数学专业要数学分）<br>
+      ❌ 政审不过（军校公安类）
+    </div>
+
+    <h3>六、征集志愿</h3>
+    <p>如果第一次没被录取，还有<strong>征集志愿</strong>（补录）机会。关注省教育考试院通知，通常在每批次录取结束后1-2天内发布。</p>
+  </div>
+
+  <!-- ====== 资料2: 专业详解大全 ====== -->
+  <div id="content-m2" class="material-section" style="display:none">
+    <h2>📗 全国高校热门专业详解大全</h2>
+
+    <h3>计算机类</h3>
+    <div class="good-box">✅ <strong>就业王者，薪资天花板高</strong>，但需要持续学习，35岁危机确实存在</div>
+    <ul>
+      <li><strong>计算机科学与技术：</strong>最通用，考公考编岗位多，学制4年</li>
+      <li><strong>软件工程：</strong>偏实践，代码能力要求高，起薪高</li>
+      <li><strong>人工智能：</strong>新方向，数学要求高，名校更有优势</li>
+      <li><strong>数据科学/大数据：</strong>各行各业都需要，前景好</li>
+      <li><strong>网络空间安全：</strong>国家急需，体制内岗位多</li>
+    </ul>
+
+    <h3>电子信息类</h3>
+    <ul>
+      <li><strong>电子信息工程：</strong>软硬结合，就业面广，华为中兴等大厂核心专业</li>
+      <li><strong>通信工程：</strong>5G/6G时代，运营商和设备商稳定就业</li>
+      <li><strong>集成电路/微电子：</strong>芯片行业爆发期，国家大力扶持</li>
+      <li><strong>光电信息：</strong>偏硬件，光学和电子交叉</li>
+    </ul>
+
+    <h3>医学类</h3>
+    <div class="warn-box">⚠️ <strong>学医注意：</strong>5年本科+3年规培是标配，想进三甲还要读研读博。但35岁后越来越值钱，没有中年危机</div>
+    <ul>
+      <li><strong>临床医学：</strong>学制5年，最核心，分数高。分高选8年制（本博连读）</li>
+      <li><strong>口腔医学：</strong>就业灵活，可公立可私立，收入上限高</li>
+      <li><strong>麻醉学：</strong>紧缺专业，就业好，但工作压力大</li>
+      <li><strong>医学影像：</strong>相对轻松，读片诊断，AI辅助是新方向</li>
+      <li><strong>护理学：</strong>就业率极高，本科护士三甲医院抢着要</li>
+      <li><strong>中医学：</strong>5年制，国家对中医药扶持力度大</li>
+    </ul>
+
+    <h3>经管类</h3>
+    <ul>
+      <li><strong>会计学：</strong>考公大户，企业刚需。建议大学期间拿下初级/CPA</li>
+      <li><strong>金融学：</strong>高薪但卷学历，名校+硕士是标配</li>
+      <li><strong>经济学：</strong>偏理论，考公岗位多，适合深造</li>
+      <li><strong>工商管理：</strong>万金油，建议搭配第二专业</li>
+    </ul>
+
+    <h3>法学类</h3>
+    <ul>
+      <li><strong>法学：</strong>考公第一大专业，但司法考试通过率低（~15%）。建议选五院四系</li>
+      <li><strong>知识产权：</strong>新兴方向，科技公司需求大</li>
+    </ul>
+
+    <h3>师范类</h3>
+    <div class="good-box">✅ <strong>公费师范生：</strong>免学费+生活费补贴+毕业包分配有编制。但要在指定地区服务6年。求稳的女生首选</div>
+    <ul>
+      <li><strong>汉语言文学（师范）：</strong>语文老师需求大，考公也有优势</li>
+      <li><strong>数学与应用数学（师范）：</strong>数学老师紧缺</li>
+      <li><strong>英语（师范）：</strong>竞争激烈但需求稳定</li>
+      <li><strong>学前教育：</strong>幼儿园老师，适合喜欢小孩的女生</li>
+      <li><strong>特殊教育：</strong>缺口大，就业好，有意义</li>
+    </ul>
+
+    <h3>文科类</h3>
+    <ul>
+      <li><strong>新闻传播学：</strong>新媒体时代出路多元化，但传统媒体衰落</li>
+      <li><strong>汉语言文学：</strong>考公考编神器，文案和内容岗位多</li>
+      <li><strong>英语/翻译：</strong>AI冲击大，建议搭配第二技能</li>
+      <li><strong>法学：</strong>前面已述，考公+律所双通道</li>
+    </ul>
+
+    <h3>所谓的"天坑专业"真的坑吗</h3>
+    <div class="tip-box">💡 "生化环材"被称为四大天坑，主要因为本科就业薪资低。但如果读研读博，材料科学和生物医药其实是好方向。关键是<strong>选专业前先想清楚要不要读研</strong></div>
+  </div>
+
+  <!-- ====== 资料3: 分数线汇总 ====== -->
+  <div id="content-m3" class="material-section" style="display:none">
+    <h2>📊 各省近三年分数线汇总（参考）</h2>
+
+    <h3>2025年各省本科线速查</h3>
+    <div class="score-table-wrap">
+      <table>
+        <tr><th>省份</th><th>物理/理科</th><th>历史/文科</th><th>综合</th></tr>
+        <tr><td>北京</td><td>-</td><td>-</td><td>434</td></tr>
+        <tr><td>上海</td><td>-</td><td>-</td><td>403</td></tr>
+        <tr><td>浙江</td><td>-</td><td>-</td><td>488</td></tr>
+        <tr><td>山东</td><td>-</td><td>-</td><td>437</td></tr>
+        <tr><td>广东</td><td>439</td><td>428</td><td>-</td></tr>
+        <tr><td>江苏</td><td>448</td><td>471</td><td>-</td></tr>
+        <tr><td>湖北</td><td>424</td><td>426</td><td>-</td></tr>
+        <tr><td>湖南</td><td>428</td><td>451</td><td>-</td></tr>
+        <tr><td>福建</td><td>428</td><td>431</td><td>-</td></tr>
+        <tr><td>河北</td><td>430</td><td>443</td><td>-</td></tr>
+        <tr><td>河南</td><td>509</td><td>521</td><td>-</td></tr>
+        <tr><td>四川</td><td>515</td><td>527</td><td>-</td></tr>
+        <tr><td>安徽</td><td>427</td><td>451</td><td>-</td></tr>
+        <tr><td>江西</td><td>443</td><td>463</td><td>-</td></tr>
+        <tr><td>辽宁</td><td>362</td><td>404</td><td>-</td></tr>
+        <tr><td>黑龙江</td><td>308</td><td>354</td><td>-</td></tr>
+        <tr><td>吉林</td><td>305</td><td>341</td><td>-</td></tr>
+        <tr><td>陕西</td><td>449</td><td>484</td><td>-</td></tr>
+        <tr><td>山西</td><td>498</td><td>516</td><td>-</td></tr>
+        <tr><td>重庆</td><td>411</td><td>415</td><td>-</td></tr>
+        <tr><td>天津</td><td>-</td><td>-</td><td>463</td></tr>
+        <tr><td>内蒙古</td><td>434</td><td>459</td><td>-</td></tr>
+        <tr><td>广西</td><td>375</td><td>395</td><td>-</td></tr>
+        <tr><td>贵州</td><td>371</td><td>446</td><td>-</td></tr>
+        <tr><td>云南</td><td>505</td><td>555</td><td>-</td></tr>
+        <tr><td>甘肃</td><td>358</td><td>415</td><td>-</td></tr>
+        <tr><td>新疆</td><td>405</td><td>443</td><td>-</td></tr>
+        <tr><td>海南</td><td>-</td><td>-</td><td>471</td></tr>
+        <tr><td>宁夏</td><td>397</td><td>488</td><td>-</td></tr>
+        <tr><td>青海</td><td>363</td><td>405</td><td>-</td></tr>
+        <tr><td>西藏</td><td>400</td><td>435</td><td>-</td></tr>
+      </table>
+    </div>
+    <div class="tip-box">💡 <strong>使用说明：</strong>上面是2025年本科批次线。你的分数过了线才有资格报本科。但具体能上什么学校，要看<strong>位次</strong>不是看分数。<br>更详细的数据（含各院校录取位次）请用首页的「查分数」功能。</div>
+  </div>
+
+  <!-- ====== 资料4: 女生专属推荐 ====== -->
+  <div id="content-m4" class="material-section" style="display:none">
+    <h2>🌸 女生专属：适合女生的大学专业推荐</h2>
+
+    <h3>就业不歧视女生的行业</h3>
+    <div class="good-box">✅ 以下行业性别歧视较少，女生发展空间大：教育、医疗、金融、法律、公务员、互联网（部分岗位）、设计、传媒</div>
+    <div class="warn-box">⚠️ 以下行业女生需慎重：土木工程（工地不友好）、地质勘探（野外作业）、部分重工业车间、航海类</div>
+
+    <h3>推荐专业清单</h3>
+    <table>
+      <tr><th>专业</th><th>推荐理由</th><th>适合性格</th></tr>
+      <tr><td>口腔医学</td><td>收入高、工作体面、不用值夜班</td><td>细心、动手能力强</td></tr>
+      <tr><td>临床医学</td><td>越老越吃香、社会地位高</td><td>有耐心、抗压能力强</td></tr>
+      <tr><td>护理学（本科）</td><td>三甲医院抢着要、就业率接近100%</td><td>有爱心、不怕累</td></tr>
+      <tr><td>会计学</td><td>考公岗位多、企业刚需、越老越值钱</td><td>细致、有条理</td></tr>
+      <tr><td>金融学</td><td>薪资上限高、一线城市机会多</td><td>外向、数学好</td></tr>
+      <tr><td>法学</td><td>考公第一大专业、社会地位高</td><td>逻辑强、表达好</td></tr>
+      <tr><td>汉语言文学（师范）</td><td>有寒暑假、工作稳定、受人尊敬</td><td>喜欢语文、有耐心</td></tr>
+      <tr><td>小学教育/学前教育</td><td>稳定有编制、和孩子在一起快乐</td><td>喜欢小孩、温柔</td></tr>
+      <tr><td>心理学</td><td>新兴热门、咨询和教育方向多</td><td>善于倾听、共情力强</td></tr>
+      <tr><td>新闻传播学</td><td>新媒体时代出路多、可以远程工作</td><td>好奇心强、会写会拍</td></tr>
+      <tr><td>数字媒体/动画</td><td>创意产业、可以做自由职业</td><td>有创意、喜欢画画</td></tr>
+      <tr><td>英语/翻译</td><td>可进外企、可做教育、可远程</td><td>语感好、沟通能力强</td></tr>
+      <tr><td>人力资源管理</td><td>办公室环境、大企业需求稳定</td><td>善于沟通、情商高</td></tr>
+      <tr><td>计算机科学</td><td>薪资天花板高、可远程、大厂多</td><td>逻辑好、不怕学新东西</td></tr>
+      <tr><td>药学</td><td>医院药房/药企/药店三通道</td><td>细心、化学好</td></tr>
+      <tr><td>风景园林</td><td>创意+技术结合、环境优美</td><td>审美好、喜欢自然</td></tr>
+    </table>
+
+    <h3>学姐真心话</h3>
+    <div class="tip-box">
+      💬 <strong>选专业三个不要：</strong><br>
+      1. 不要因为"好就业"选一个你讨厌的专业——四年会很痛苦<br>
+      2. 不要因为"男朋友选了这个"就跟着选——为自己的人生做决定<br>
+      3. 不要被"女生不适合学XX"限制——我认识很多优秀的工科女生，她们干得比男生好
+    </div>
+  </div>
+
+  <!-- ====== 资料5: 大礼包 ====== -->
+  <div id="content-m5" class="material-section" style="display:none">
+    <h2>🎁 志愿填报大礼包 · 全部资料</h2>
+    <p>你已经解锁了全部四份资料！以下是额外的赠送内容：</p>
+
+    <h3>🎓 赠品一：大学四年规划指南</h3>
+    <ul>
+      <li><strong>大一：</strong>适应+探索。加入1-2个社团，把四级过了，保持绩点</li>
+      <li><strong>大二：</strong>确定方向。考研/考公/就业三条路开始想清楚。六级+计算机二级</li>
+      <li><strong>大三：</strong>全力冲刺。考研的泡图书馆，就业的找实习，考公的刷题</li>
+      <li><strong>大四：</strong>收获季节。秋招/考研/考公同步推进，多个offer多条路</li>
+    </ul>
+    <div class="tip-box">💡 不管将来做什么，<strong>大一大二的绩点一定要保住</strong>，后面考研保研都用得上</div>
+
+    <h3>🎓 赠品二：考研保研科普</h3>
+    <ul>
+      <li><strong>保研（推免）：</strong>大四上学期确定，看前三年的综合排名。985保研率20-50%，211保研率10-20%，双非5-10%</li>
+      <li><strong>考研：</strong>大三开始准备，大四上学期12月考试。分初试（笔试）+复试（面试）</li>
+      <li><strong>专硕 vs 学硕：</strong>专硕偏就业（2年）、学硕偏科研（3年）。现在专硕越来越主流</li>
+      <li><strong>跨专业考研：</strong>可以的！但建议大一就开始旁听目标专业的课</li>
+    </ul>
+
+    <h3>🎓 大学必备技能清单</h3>
+    <ul>
+      <li>📊 Office三件套（Word/Excel/PPT）——任何专业都要</li>
+      <li>💻 至少学一门编程语言（Python最推荐）</li>
+      <li>📝 学会写简历和面试——大二就要开始练</li>
+      <li>🗣️ 公众演讲/表达能力——参加辩论或演讲社团</li>
+      <li>💰 基础理财——学会记账、了解基金定投</li>
+      <li>📷 拍照/修图/剪辑——自媒体时代的基本功</li>
+    </ul>
+  </div>
+
+  <a href="../index.html" class="back-link">← 返回首页继续查大学</a>
+</div>
+
+<script>
+// 解锁码配置 —— 用户付款后你在微信上发对应密码
+const CODES = {
+  m1: "gk2026zn",    // 志愿填报完全指南
+  m2: "gk2026zy",    // 专业详解大全
+  m3: "gk2026fs",    // 分数线汇总
+  m4: "gk2026ns",    // 女生专属推荐
+  m5: "gk2026all"    // 全套大礼包（解锁全部）
+};
+
+// 当前已解锁的资料
+let unlocked = JSON.parse(sessionStorage.getItem("unlockedMaterials") || "[]");
+
+function unlock() {
+  const input = document.getElementById("codeInput").value.trim();
+  const errorEl = document.getElementById("lockError");
+
+  let matched = null;
+  for (const [key, code] of Object.entries(CODES)) {
+    if (input === code) { matched = key; break; }
+  }
+
+  if (!matched) {
+    errorEl.style.display = "block";
+    return;
+  }
+
+  errorEl.style.display = "none";
+
+  // 大礼包解锁全部
+  if (matched === "m5") {
+    unlocked = ["m1","m2","m3","m4","m5"];
+  } else {
+    if (!unlocked.includes(matched)) unlocked.push(matched);
+    // 如果全部单买都解锁了，自动解锁大礼包
+    if (["m1","m2","m3","m4"].every(k => unlocked.includes(k))) {
+      if (!unlocked.includes("m5")) unlocked.push("m5");
+    }
+  }
+
+  sessionStorage.setItem("unlockedMaterials", JSON.stringify(unlocked));
+  showContent(matched);
+}
+
+function showContent(materialId) {
+  document.getElementById("lockScreen").style.display = "none";
+  document.getElementById("contentArea").style.display = "block";
+
+  // 隐藏所有资料区
+  document.querySelectorAll(".material-section").forEach(s => s.style.display = "none");
+  // 显示对应的
+  const section = document.getElementById("content-" + materialId);
+  if (section) section.style.display = "block";
+
+  // 更新解锁标签
+  const names = { m1: "志愿指南", m2: "专业大全", m3: "分数线", m4: "女生推荐", m5: "全部资料" };
+  const tags = unlocked.map(k => names[k] || k).join("、");
+  document.getElementById("unlockedTag").textContent = tags || "无";
+
+  window.scrollTo(0, 0);
+}
+
+function switchMaterial() {
+  const input = document.getElementById("switchCode").value.trim();
+  let matched = null;
+  for (const [key, code] of Object.entries(CODES)) {
+    if (input === code) { matched = key; break; }
+  }
+  if (matched) {
+    if (matched === "m5") {
+      unlocked = ["m1","m2","m3","m4","m5"];
+    } else {
+      if (!unlocked.includes(matched)) unlocked.push(matched);
+    }
+    sessionStorage.setItem("unlockedMaterials", JSON.stringify(unlocked));
+    showContent(matched);
+  } else {
+    alert("解锁码不对哦~");
+  }
+}
+
+// 页面加载时检查是否已解锁
+(function() {
+  if (unlocked.length > 0) {
+    showContent(unlocked[unlocked.length - 1]);
+  }
+})();
+</script>
+</body>
+</html>

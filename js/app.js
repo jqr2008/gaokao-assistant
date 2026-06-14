@@ -342,9 +342,13 @@ function renderMaterials() {
   }
 }
 
+// 解锁码映射
+const UNLOCK_CODES = { m1: "gk2026zn", m2: "gk2026zy", m3: "gk2026fs", m4: "gk2026ns", m5: "gk2026all" };
+
 function openBuyModal(materialId) {
   const m = materials.find(mat => mat.id === materialId);
   if (!m) return;
+  const code = UNLOCK_CODES[materialId] || "";
 
   const body = document.getElementById("buy-modal-body");
   body.innerHTML = `
@@ -355,16 +359,27 @@ function openBuyModal(materialId) {
         <span style="font-size:28px;font-weight:800;color:var(--orange)">¥${m.price}</span>
         <span style="font-size:14px;color:var(--text-muted);text-decoration:line-through;margin-left:8px">¥${m.originalPrice}</span>
       </div>
-      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px">${m.desc}</p>
     </div>
+
+    <div style="background:#FFF8E1;border-radius:10px;padding:12px;margin:12px 0;font-size:13px;text-align:left;line-height:1.8;">
+      <strong>📋 购买步骤：</strong><br>
+      ① 扫码付款 <strong>¥${m.price}</strong><br>
+      ② 截图发给学姐微信 <strong>k77m10n10</strong><br>
+      ③ 学姐发你<strong>解锁码</strong><br>
+      ④ 点下方按钮输入解锁码查看
+    </div>
+
     <div class="qrcode-placeholder">
-      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:8px">📱 扫码付款后发我截图</p>
-      <img class="qrcode-img" src="img/wechat-pay.jpg" alt="收款二维码" style="width:180px;height:180px;object-fit:contain;border-radius:10px;">
+      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:8px">📱 微信扫码付款</p>
+      <img class="qrcode-img" src="img/wechat-pay.jpg" alt="收款码" style="width:180px;height:180px;object-fit:contain;border-radius:10px;">
     </div>
-    <p class="modal-tip">付款后加学姐微信发截图，立刻发资料！</p>
-    <div class="buy-modal-actions">
+
+    <div class="buy-modal-actions" style="gap:8px;">
+      <button class="btn btn-primary btn-full" onclick="closeModal('buy-modal'); window.open('materials/index.html','_blank')">
+        🔓 点此输入解锁码查看资料
+      </button>
       <button class="btn btn-outline btn-full" onclick="closeModal('buy-modal'); showWechatModal()">
-        💬 加微信发截图
+        💬 加学姐微信领码
       </button>
     </div>
   `;
