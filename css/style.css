@@ -1175,6 +1175,7 @@ body {
 
 .qrcode-placeholder {
   margin: 16px auto;
+  text-align: center;
 }
 
 .qrcode-img {
@@ -1190,6 +1191,7 @@ body {
   justify-content: center;
   font-size: 14px;
   color: var(--text-muted);
+  object-fit: contain;
 }
 
 .qrcode-img span { font-size: 48px; margin-bottom: 8px; }

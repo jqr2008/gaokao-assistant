@@ -353,10 +353,7 @@ function openBuyModal(materialId) {
     </div>
     <div class="qrcode-placeholder">
       <p style="font-size:13px;color:var(--text-secondary);margin-bottom:8px">📱 扫码付款后发我截图</p>
-      <div class="qrcode-img">
-        <span>📱</span>
-        <p>替换为你的<br>收款二维码</p>
-      </div>
+      <img class="qrcode-img" src="img/wechat-pay.jpg" alt="收款二维码" style="width:180px;height:180px;object-fit:contain;border-radius:10px;">
     </div>
     <p class="modal-tip">付款后加学姐微信发截图，立刻发资料！</p>
     <div class="buy-modal-actions">
