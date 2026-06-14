@@ -1523,7 +1523,108 @@ const universities = [
   { id: 546, name: "汉口学院", province: "湖北", city: "武汉", type: "综合", level: [], isPublic: false, topMajors: ["计算机科学", "工商管理", "汉语言文学", "英语", "艺术设计"], description: "武汉老牌民办本科，在汉口办学。应用型人才培养为主。", employmentRate: 0.83, genderRatio: { male: 46, female: 54 }, avgScore: 458 },
   { id: 547, name: "武汉华夏理工学院", province: "湖北", city: "武汉", type: "理工", level: [], isPublic: false, topMajors: ["车辆工程", "机械工程", "计算机科学", "制药工程", "工商管理"], description: "原武汉理工大学华夏学院，工科在民办中较强。车辆工程有母体底蕴。", employmentRate: 0.85, genderRatio: { male: 58, female: 42 }, avgScore: 460 },
   { id: 548, name: "武汉传媒学院", province: "湖北", city: "武汉", type: "艺术", level: [], isPublic: false, topMajors: ["广播电视学", "播音主持", "动画", "摄影", "文化产业管理"], description: "华中地区唯一的传媒类民办本科。武汉的文创产业在崛起。", employmentRate: 0.83, genderRatio: { male: 38, female: 62 }, avgScore: 455 },
-  { id: 549, name: "武汉生物工程学院", province: "湖北", city: "武汉", type: "理工", level: [], isPublic: false, topMajors: ["生物工程", "制药工程", "食品科学", "环境工程", "园林"], description: "湖北最早的民办本科之一，生物和制药是特色。产学研结合做得不错。", employmentRate: 0.84, genderRatio: { male: 48, female: 52 }, avgScore: 455 }
+  { id: 549, name: "武汉生物工程学院", province: "湖北", city: "武汉", type: "理工", level: [], isPublic: false, topMajors: ["生物工程", "制药工程", "食品科学", "环境工程", "园林"], description: "湖北最早的民办本科之一，生物和制药是特色。产学研结合做得不错。", employmentRate: 0.84, genderRatio: { male: 48, female: 52 }, avgScore: 455 },
+
+  // ===== 第七批：民族类/农林类/更多缺漏院校 =====
+  // 民族类（补充）
+  { id: 550, name: "中南民族大学", province: "湖北", city: "武汉", type: "民族", level: [], isPublic: true, topMajors: ["民族学", "化学", "药学", "工商管理", "法学"], description: "国家民委直属，中南地区最好的民族院校。南湖边的校园，民族多样性丰富。", employmentRate: 0.88, genderRatio: { male: 44, female: 56 }, avgScore: 565 },
+  { id: 551, name: "西南民族大学", province: "四川", city: "成都", type: "民族", level: [], isPublic: true, topMajors: ["民族学", "畜牧学", "法学", "藏学", "旅游管理"], description: "国家民委直属，西南地区民族教育的重镇。在成都这座美食之都，校园文化多元。", employmentRate: 0.86, genderRatio: { male: 44, female: 56 }, avgScore: 550 },
+  { id: 552, name: "西北民族大学", province: "甘肃", city: "兰州", type: "民族", level: [], isPublic: true, topMajors: ["民族学", "藏语言文学", "蒙古语言文学", "舞蹈学", "医学"], description: "国家民委直属，西北民族教育的旗舰。少数民族语言和艺术全国最强。", employmentRate: 0.84, genderRatio: { male: 44, female: 56 }, avgScore: 480 },
+  { id: 553, name: "北方民族大学", province: "宁夏", city: "银川", type: "民族", level: [], isPublic: true, topMajors: ["民族学", "材料科学", "计算机科学", "经济学", "音乐学"], description: "国家民委直属，唯一设在宁夏的民族高校。塞上江南银川的学府。", employmentRate: 0.84, genderRatio: { male: 46, female: 54 }, avgScore: 478 },
+  { id: 554, name: "贵州民族大学", province: "贵州", city: "贵阳", type: "民族", level: [], isPublic: true, topMajors: ["民族学", "法学", "旅游管理", "苗学", "环境工程"], description: "贵州省属民族院校，苗族侗族文化研究全国领先。贵阳气候凉爽宜人。", employmentRate: 0.85, genderRatio: { male: 44, female: 56 }, avgScore: 495 },
+  { id: 555, name: "湖北民族大学", province: "湖北", city: "恩施", type: "民族", level: [], isPublic: true, topMajors: ["民族学", "临床医学", "林学", "数学", "中国语言文学"], description: "湖北民族地区的最高学府，恩施大峡谷旁的大学。土家族苗族文化研究特色鲜明。", employmentRate: 0.85, genderRatio: { male: 44, female: 56 }, avgScore: 492 },
+  { id: 556, name: "四川民族学院", province: "四川", city: "康定", type: "民族", level: [], isPublic: true, topMajors: ["藏语言文学", "旅游管理", "音乐学", "小学教育", "民族学"], description: "四川藏区唯一的本科，康定情歌的故乡。藏族文化和艺术教育全国知名。", employmentRate: 0.82, genderRatio: { male: 42, female: 58 }, avgScore: 465 },
+
+  // 农林类（补充）
+  { id: 557, name: "浙江海洋大学", province: "浙江", city: "舟山", type: "农林", level: [], isPublic: true, topMajors: ["海洋科学", "船舶工程", "水产养殖", "食品科学", "港口航道"], description: "改名前的浙江海洋学院，海洋和水产是王牌。舟山群岛新区的海洋特色大学。", employmentRate: 0.90, genderRatio: { male: 56, female: 44 }, avgScore: 560 },
+  { id: 558, name: "广东海洋大学", province: "广东", city: "湛江", type: "农林", level: [], isPublic: true, topMajors: ["海洋科学", "水产养殖", "食品科学", "大气科学", "船舶工程"], description: "华南海洋教育的重镇，水产养殖全国前三。湛江的海鲜又多又便宜。", employmentRate: 0.88, genderRatio: { male: 55, female: 45 }, avgScore: 512 },
+  { id: 559, name: "北京农学院", province: "北京", city: "北京", type: "农林", level: [], isPublic: true, topMajors: ["园艺学", "动物医学", "食品科学", "风景园林", "农业经济"], description: "北京市属唯一的农林本科，在北京学农很独特。宠物医学方向很受欢迎。", employmentRate: 0.87, genderRatio: { male: 44, female: 56 }, avgScore: 505 },
+  { id: 561, name: "天津农学院", province: "天津", city: "天津", type: "农林", level: [], isPublic: true, topMajors: ["水产养殖", "农学", "动物科学", "食品科学", "园林"], description: "天津唯一的农林本科，在直辖市学农的独特体验。水产养殖是王牌。", employmentRate: 0.86, genderRatio: { male: 48, female: 52 }, avgScore: 508 },
+  { id: 562, name: "山西农业大学", province: "山西", city: "太谷", type: "农林", level: [], isPublic: true, topMajors: ["农学", "动物科学", "植物保护", "园艺学", "食品科学"], description: "百年农业学府，山西省属重点。在太谷，一所大学带火一座城。", employmentRate: 0.86, genderRatio: { male: 48, female: 52 }, avgScore: 485 },
+  // 更多地方学院补充
+  { id: 564, name: "莆田学院", province: "福建", city: "莆田", type: "综合", level: [], isPublic: true, topMajors: ["临床医学", "护理学", "小学教育", "机械工程", "数学"], description: "莆田唯一的公办本科，医学和师范是主要方向。妈祖故乡的大学。", employmentRate: 0.86, genderRatio: { male: 44, female: 56 }, avgScore: 488 },
+  { id: 565, name: "龙岩学院", province: "福建", city: "龙岩", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "动物医学", "材料科学", "计算机科学", "旅游管理"], description: "龙岩唯一的公办本科，闽西革命老区的最高学府。客家文化研究有特色。", employmentRate: 0.85, genderRatio: { male: 46, female: 54 }, avgScore: 482 },
+  { id: 566, name: "三明学院", province: "福建", city: "三明", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "机械工程", "化学工程", "旅游管理", "艺术设计"], description: "三明唯一的公办本科，闽中地区的最高学府。绿色生态和林业研究有地方优势。", employmentRate: 0.85, genderRatio: { male: 48, female: 52 }, avgScore: 478 },
+  { id: 567, name: "武夷学院", province: "福建", city: "武夷山", type: "综合", level: [], isPublic: true, topMajors: ["旅游管理", "茶学", "学前教育", "环境工程", "艺术设计"], description: "武夷山唯一的本科，茶学和旅游是全国独一份。在5A级景区里上大学。", employmentRate: 0.84, genderRatio: { male: 44, female: 56 }, avgScore: 475 },
+  { id: 568, name: "宁德师范学院", province: "福建", city: "宁德", type: "师范", level: [], isPublic: true, topMajors: ["小学教育", "汉语言文学", "数学", "英语", "化学"], description: "宁德唯一的师范本科，闽东教育人才的培养基地。宁德时代总部所在地。", employmentRate: 0.85, genderRatio: { male: 30, female: 70 }, avgScore: 478 },
+
+  // 更多省份地方院校
+  { id: 569, name: "池州学院", province: "安徽", city: "池州", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "旅游管理", "化学", "计算机科学", "汉语言文学"], description: "池州唯一的公办本科，九华山脚下的大学。旅游管理和生态学有地缘优势。", employmentRate: 0.84, genderRatio: { male: 44, female: 56 }, avgScore: 470 },
+  { id: 570, name: "宿州学院", province: "安徽", city: "宿州", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "地质工程", "生物科学", "机械工程", "数学"], description: "宿州唯一的本科，地质和煤矿工程有皖北地方特色。师范方向为主。", employmentRate: 0.85, genderRatio: { male: 46, female: 54 }, avgScore: 468 },
+  { id: 571, name: "铜陵学院", province: "安徽", city: "铜陵", type: "财经", level: [], isPublic: true, topMajors: ["会计学", "金融学", "经济学", "财务管理", "计算机科学"], description: "铜陵唯一的本科，财经特色。原安徽财贸学院铜陵分院发展而来。", employmentRate: 0.86, genderRatio: { male: 42, female: 58 }, avgScore: 472 },
+  { id: 572, name: "淮南师范学院", province: "安徽", city: "淮南", type: "师范", level: [], isPublic: true, topMajors: ["小学教育", "汉语言文学", "数学", "化学", "美术学"], description: "淮南的师范本科，皖北教育人才的重要来源。豆腐发源地的大学。", employmentRate: 0.85, genderRatio: { male: 30, female: 70 }, avgScore: 468 },
+  { id: 573, name: "巢湖学院", province: "安徽", city: "巢湖", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "体育教育", "旅游管理", "机械工程", "计算机科学"], description: "巢湖之滨的唯一本科，师范和体育是特色。合肥的后花园，环境宜人。", employmentRate: 0.85, genderRatio: { male: 45, female: 55 }, avgScore: 470 },
+  { id: 574, name: "蚌埠学院", province: "安徽", city: "蚌埠", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "食品科学", "机械工程", "计算机科学", "音乐学"], description: "蚌埠市属本科，食品和机械是应用型方向。蚌埠是安徽的交通枢纽。", employmentRate: 0.85, genderRatio: { male: 48, female: 52 }, avgScore: 472 },
+
+  // 更多民办
+  { id: 575, name: "广州商学院", province: "广东", city: "广州", type: "财经", level: [], isPublic: false, topMajors: ["会计学", "金融学", "电子商务", "国际经济与贸易", "法学"], description: "广东民办财经类强校，在广州中新知识城。商科为主，就业导向明确。", employmentRate: 0.84, genderRatio: { male: 42, female: 58 }, avgScore: 460 },
+  { id: 576, name: "广东科技学院", province: "广东", city: "东莞", type: "理工", level: [], isPublic: false, topMajors: ["计算机科学", "机械工程", "自动化", "电子商务", "英语"], description: "东莞的民办工科本科，服务大湾区制造业。东莞的IT和制造产业就业支撑强。", employmentRate: 0.85, genderRatio: { male: 58, female: 42 }, avgScore: 458 },
+  { id: 577, name: "厦门工学院", province: "福建", city: "厦门", type: "理工", level: [], isPublic: false, topMajors: ["机械工程", "土木工程", "计算机科学", "建筑学", "电气工程"], description: "厦门的民办工科本科，工科专业比较齐全。厦门这座城市本身就加分。", employmentRate: 0.84, genderRatio: { male: 62, female: 38 }, avgScore: 462 },
+  { id: 578, name: "福州外语外贸学院", province: "福建", city: "福州", type: "财经", level: [], isPublic: false, topMajors: ["英语", "国际经济与贸易", "会计学", "商务英语", "金融学"], description: "民办外语+财经特色，在福州长乐。外向型经济相关专业有福建外贸产业支撑。", employmentRate: 0.84, genderRatio: { male: 30, female: 70 }, avgScore: 455 },
+  { id: 579, name: "泉州信息工程学院", province: "福建", city: "泉州", type: "理工", level: [], isPublic: false, topMajors: ["电子信息工程", "软件工程", "机械工程", "通信工程", "电子商务"], description: "泉州民办工科本科，电子信息特色。泉州民营经济发达，IT类就业有地域优势。", employmentRate: 0.85, genderRatio: { male: 62, female: 38 }, avgScore: 458 },
+
+  // ===== 第八批：各省学院全面补充 =====
+  // 广东
+  { id: 580, name: "广州航海学院", province: "广东", city: "广州", type: "理工", level: [], isPublic: true, topMajors: ["航海技术", "轮机工程", "船舶电子", "港口航道", "交通运输"], description: "华南唯一独立航海本科，广州港是世界级大港。航海类就业率极高。", employmentRate: 0.92, genderRatio: { male: 68, female: 32 }, avgScore: 502 },
+
+  // 河南
+  { id: 581, name: "河南城建学院", province: "河南", city: "平顶山", type: "理工", level: [], isPublic: true, topMajors: ["土木工程", "建筑学", "城乡规划", "给排水", "测绘工程"], description: "河南省属城建类本科，土木建筑在河南仅次于郑大。建设行业校友遍布河南。", employmentRate: 0.89, genderRatio: { male: 62, female: 38 }, avgScore: 492 },
+  { id: 582, name: "河南牧业经济学院", province: "河南", city: "郑州", type: "农林", level: [], isPublic: true, topMajors: ["动物科学", "兽医学", "食品科学", "会计学", "市场营销"], description: "原郑州牧专+河南商专合并，畜牧兽医和会计是双王牌。在郑州龙子湖大学城。", employmentRate: 0.89, genderRatio: { male: 48, female: 52 }, avgScore: 495 },
+  { id: 583, name: "郑州师范学院", province: "河南", city: "郑州", type: "师范", level: [], isPublic: true, topMajors: ["小学教育", "汉语言文学", "特殊教育", "数学", "英语"], description: "郑州市属师范本科，小学教育和特教是王牌。郑州中小学教师的重要来源。", employmentRate: 0.88, genderRatio: { male: 26, female: 74 }, avgScore: 498 },
+
+  // 山东
+  { id: 584, name: "山东政法学院", province: "山东", city: "济南", type: "政法", level: [], isPublic: true, topMajors: ["法学", "监狱学", "政治学", "行政管理", "经济学"], description: "山东省属政法类本科，法学在山东省内仅次于山大。考公和政法系统就业好。", employmentRate: 0.88, genderRatio: { male: 42, female: 58 }, avgScore: 522 },
+  { id: 585, name: "山东女子学院", province: "山东", city: "济南", type: "综合", level: [], isPublic: true, topMajors: ["学前教育", "社会工作", "英语", "工商管理", "计算机科学"], description: "全国三所女子本科之一，女生专属的大学。学前教育和社工国家级特色专业。", employmentRate: 0.87, genderRatio: { male: 5, female: 95 }, avgScore: 490 },
+  { id: 586, name: "齐鲁师范学院", province: "山东", city: "济南", type: "师范", level: [], isPublic: true, topMajors: ["小学教育", "汉语言文学", "数学", "化学", "思想政治教育"], description: "山东省属师范本科，中小学教师培训基地。济南的地理位置加分。", employmentRate: 0.88, genderRatio: { male: 28, female: 72 }, avgScore: 500 },
+  { id: 587, name: "山东青年政治学院", province: "山东", city: "济南", type: "政法", level: [], isPublic: true, topMajors: ["社会工作", "政治学", "舞蹈学", "播音主持", "经济学"], description: "原山东省团校，青年工作和政治学是特色。舞蹈专业意外地强。", employmentRate: 0.85, genderRatio: { male: 40, female: 60 }, avgScore: 488 },
+  { id: 588, name: "山东管理学院", province: "山东", city: "济南", type: "财经", level: [], isPublic: true, topMajors: ["劳动关系", "会计学", "工商管理", "经济学", "人力资源管理"], description: "原山东省工会管理干部学院，劳动关系是独有特色。工会系统就业对口。", employmentRate: 0.86, genderRatio: { male: 42, female: 58 }, avgScore: 485 },
+  { id: 589, name: "山东农业工程学院", province: "山东", city: "济南/淄博", type: "农林", level: [], isPublic: true, topMajors: ["农学", "农业工程", "食品科学", "国土资源", "风景园林"], description: "山东省属农林本科，服务山东农业现代化。土地资源管理是特色方向。", employmentRate: 0.86, genderRatio: { male: 50, female: 50 }, avgScore: 488 },
+
+  // 辽宁
+  { id: 590, name: "辽宁科技学院", province: "辽宁", city: "本溪", type: "理工", level: [], isPublic: true, topMajors: ["冶金工程", "机械工程", "自动化", "土木工程", "计算机科学"], description: "原本溪冶金高专，冶金和机械是传统优势。本溪是中国钢都之一。", employmentRate: 0.88, genderRatio: { male: 62, female: 38 }, avgScore: 478 },
+  { id: 591, name: "沈阳化工大学", province: "辽宁", city: "沈阳", type: "理工", level: [], isPublic: true, topMajors: ["化学工程", "材料科学", "过程装备", "自动化", "应用化学"], description: "原沈阳化工学院，化工和过程装备是王牌。在沈阳铁西老工业区。", employmentRate: 0.90, genderRatio: { male: 58, female: 42 }, avgScore: 508 },
+
+  // 吉林
+  { id: 592, name: "吉林化工学院", province: "吉林", city: "吉林市", type: "理工", level: [], isPublic: true, topMajors: ["化学工程", "材料科学", "过程装备", "自动化", "制药工程"], description: "吉林省属化工特色本科，化工和制药是两大方向。吉林市有化工产业基础。", employmentRate: 0.88, genderRatio: { male: 58, female: 42 }, avgScore: 472 },
+  { id: 593, name: "吉林工商学院", province: "吉林", city: "长春", type: "财经", level: [], isPublic: true, topMajors: ["会计学", "工商管理", "经济学", "食品科学", "旅游管理"], description: "原吉林财税高专+吉林商专等合并，财经特色。长春的生活成本低。", employmentRate: 0.86, genderRatio: { male: 40, female: 60 }, avgScore: 475 },
+  { id: 594, name: "吉林医药学院", province: "吉林", city: "吉林市", type: "医药", level: [], isPublic: true, topMajors: ["临床医学", "护理学", "药学", "医学检验", "预防医学"], description: "原第四军医大学吉林军医学院，医学底子好。在吉林市，分数友好。", employmentRate: 0.89, genderRatio: { male: 40, female: 60 }, avgScore: 478 },
+  { id: 595, name: "通化师范学院", province: "吉林", city: "通化", type: "师范", level: [], isPublic: true, topMajors: ["小学教育", "汉语言文学", "数学", "生物科学", "历史学"], description: "通化唯一的师范本科，长白山脚下的大学。为吉林东南部培养教师。", employmentRate: 0.84, genderRatio: { male: 30, female: 70 }, avgScore: 458 },
+  { id: 596, name: "白城师范学院", province: "吉林", city: "白城", type: "师范", level: [], isPublic: true, topMajors: ["小学教育", "汉语言文学", "数学", "地理科学", "化学"], description: "白城唯一的本科，吉林西部教育的人才基地。向海湿地旁的大学。", employmentRate: 0.84, genderRatio: { male: 30, female: 70 }, avgScore: 455 },
+
+  // 黑龙江
+  { id: 597, name: "黑龙江工业学院", province: "黑龙江", city: "鸡西", type: "理工", level: [], isPublic: true, topMajors: ["矿业工程", "机械工程", "电气工程", "土木工程", "计算机科学"], description: "鸡西唯一的公办本科，矿业和机械是传统方向。黑龙江东部的重要工科院校。", employmentRate: 0.86, genderRatio: { male: 60, female: 40 }, avgScore: 460 },
+
+  // 陕西
+  { id: 598, name: "陕西学前师范学院", province: "陕西", city: "西安", type: "师范", level: [], isPublic: true, topMajors: ["学前教育", "小学教育", "心理学", "汉语言文学", "音乐学"], description: "陕西唯一的学前师范本科，幼教人才的核心基地。在西安，地理位置不错。", employmentRate: 0.87, genderRatio: { male: 22, female: 78 }, avgScore: 485 },
+  { id: 599, name: "咸阳师范学院", province: "陕西", city: "咸阳", type: "师范", level: [], isPublic: true, topMajors: ["小学教育", "汉语言文学", "数学", "历史学", "化学"], description: "咸阳最高的师范学府，离西安很近。为关中和陕北培养教育人才。", employmentRate: 0.86, genderRatio: { male: 28, female: 72 }, avgScore: 482 },
+  { id: 600, name: "渭南师范学院", province: "陕西", city: "渭南", type: "师范", level: [], isPublic: true, topMajors: ["小学教育", "汉语言文学", "数学", "物理学", "美术学"], description: "渭南唯一的师范本科，关中东部的教育重镇。华山西岳脚下的大学。", employmentRate: 0.85, genderRatio: { male: 30, female: 70 }, avgScore: 478 },
+  { id: 601, name: "榆林学院", province: "陕西", city: "榆林", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "能源化工", "机械工程", "会计学", "历史学"], description: "榆林唯一的公办本科，能源化工有陕北煤炭产业支撑。近年发展迅速。", employmentRate: 0.86, genderRatio: { male: 48, female: 52 }, avgScore: 475 },
+  { id: 602, name: "商洛学院", province: "陕西", city: "商洛", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "生物科学", "中药学", "汉语言文学", "数学"], description: "商洛唯一的本科，秦岭腹地的大学。中药资源和生物多样性研究有地缘优势。", employmentRate: 0.84, genderRatio: { male: 42, female: 58 }, avgScore: 465 },
+  { id: 603, name: "安康学院", province: "陕西", city: "安康", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "农学", "旅游管理", "汉语言文学", "茶学"], description: "安康唯一的本科，秦巴山区汉水之滨。富硒食品和茶学有独特研究方向。", employmentRate: 0.84, genderRatio: { male: 42, female: 58 }, avgScore: 462 },
+
+  // 湖南
+  { id: 604, name: "湖南工程学院", province: "湖南", city: "湘潭", type: "理工", level: [], isPublic: true, topMajors: ["电气工程", "机械工程", "纺织工程", "自动化", "计算机科学"], description: "原湘潭机电高专+湖南纺织高专合并，电气和纺织是双王牌。应用型工科强校。", employmentRate: 0.89, genderRatio: { male: 60, female: 40 }, avgScore: 505 },
+  { id: 605, name: "湖南城市学院", province: "湖南", city: "益阳", type: "理工", level: [], isPublic: true, topMajors: ["土木工程", "建筑学", "城乡规划", "测绘工程", "给排水"], description: "原湖南城建高专+益阳师专合并，城建是核心特色。湖南城建系统校友众多。", employmentRate: 0.89, genderRatio: { male: 60, female: 40 }, avgScore: 498 },
+  { id: 606, name: "湖南工学院", province: "湖南", city: "衡阳", type: "理工", level: [], isPublic: true, topMajors: ["安全工程", "机械工程", "土木工程", "材料科学", "计算机科学"], description: "原湖南大学衡阳分校+湖南建材高专合并，安全工程是国家级特色。", employmentRate: 0.88, genderRatio: { male: 62, female: 38 }, avgScore: 495 },
+  { id: 607, name: "湖南科技学院", province: "湖南", city: "永州", type: "综合", level: [], isPublic: true, topMajors: ["汉语言文学", "生物工程", "计算机科学", "数学", "法学"], description: "永州唯一的公办本科，潇湘文化发源地。柳宗元《永州八记》的文学传统。", employmentRate: 0.85, genderRatio: { male: 46, female: 54 }, avgScore: 488 },
+  { id: 608, name: "湖南人文科技学院", province: "湖南", city: "娄底", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "材料科学", "农学", "计算机科学", "英语"], description: "娄底唯一的公办本科，师范和应用型工科并举。曾国藩故里的大学。", employmentRate: 0.85, genderRatio: { male: 48, female: 52 }, avgScore: 485 },
+  { id: 609, name: "长沙学院", province: "湖南", city: "长沙", type: "综合", level: [], isPublic: true, topMajors: ["软件工程", "旅游管理", "公共管理", "艺术设计", "英语"], description: "长沙市属本科，在长沙市区。软件和旅游管理有长沙产业支撑。", employmentRate: 0.88, genderRatio: { male: 48, female: 52 }, avgScore: 508 },
+
+  // 更多地方学院
+  { id: 610, name: "桂林航天工业学院", province: "广西", city: "桂林", type: "理工", level: [], isPublic: true, topMajors: ["飞行器制造", "汽车服务", "能源动力", "机械工程", "通信工程"], description: "原桂林航天工业高专，航天和地方产业结合。桂林山水间的工科院校。", employmentRate: 0.88, genderRatio: { male: 62, female: 38 }, avgScore: 482 },
+  { id: 611, name: "梧州学院", province: "广西", city: "梧州", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "电子信息工程", "国际经济与贸易", "宝石学", "机械工程"], description: "梧州唯一的公办本科，宝石鉴定全国独有。西江畔上的大学。", employmentRate: 0.84, genderRatio: { male: 46, female: 54 }, avgScore: 468 },
+  { id: 612, name: "百色学院", province: "广西", city: "百色", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "化学", "材料科学", "汉语言文学", "旅游管理"], description: "百色唯一的公办本科，革命老区的最高学府。铝金属材料研究有地方优势。", employmentRate: 0.84, genderRatio: { male: 44, female: 56 }, avgScore: 465 },
+  { id: 613, name: "河池学院", province: "广西", city: "河池", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "汉语言文学", "生物科学", "电子信息工程", "数学"], description: "河池唯一的公办本科，桂西北少数民族地区的最高学府。", employmentRate: 0.83, genderRatio: { male: 44, female: 56 }, avgScore: 462 },
+  { id: 614, name: "贺州学院", province: "广西", city: "贺州", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "食品科学", "旅游管理", "计算机科学", "英语"], description: "贺州唯一的公办本科，桂粤湘三省交界的大学。长寿之乡的食品研究有地方特色。", employmentRate: 0.83, genderRatio: { male: 44, female: 56 }, avgScore: 460 },
+  // 江西
+  { id: 616, name: "赣南医学院", province: "江西", city: "赣州", type: "医药", level: [], isPublic: true, topMajors: ["临床医学", "麻醉学", "护理学", "药学", "口腔医学"], description: "赣南唯一的医学院，临床和麻醉是主要方向。在江西南部医疗系统有影响力。", employmentRate: 0.89, genderRatio: { male: 42, female: 58 }, avgScore: 508 },
+  { id: 617, name: "宜春学院", province: "江西", city: "宜春", type: "综合", level: [], isPublic: true, topMajors: ["临床医学", "农学", "小学教育", "药学", "计算机科学"], description: "宜春唯一的公办本科，医学+农学+师范三方向。美容医学方向全国独有。", employmentRate: 0.86, genderRatio: { male: 46, female: 54 }, avgScore: 485 },
+  { id: 618, name: "上饶师范学院", province: "江西", city: "上饶", type: "师范", level: [], isPublic: true, topMajors: ["小学教育", "汉语言文学", "数学", "化学", "历史学"], description: "上饶唯一的师范本科，赣东北教育人才的摇篮。三清山和婺源旁的大学。", employmentRate: 0.85, genderRatio: { male: 32, female: 68 }, avgScore: 480 },
+  { id: 619, name: "九江学院", province: "江西", city: "九江", type: "综合", level: [], isPublic: true, topMajors: ["临床医学", "会计学", "旅游管理", "土木工程", "小学教育"], description: "九江唯一的公办本科，医学+财经+师范多方向。庐山和鄱阳湖旁的大学。", employmentRate: 0.87, genderRatio: { male: 46, female: 54 }, avgScore: 490 },
+  { id: 620, name: "萍乡学院", province: "江西", city: "萍乡", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "机械工程", "矿业工程", "汉语言文学", "材料科学"], description: "萍乡唯一的公办本科，煤矿和机械有历史渊源。安源革命精神的传承地。", employmentRate: 0.85, genderRatio: { male: 48, female: 52 }, avgScore: 472 },
+  { id: 621, name: "新余学院", province: "江西", city: "新余", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "新能源科学", "机械工程", "计算机科学", "护理学"], description: "新余唯一的公办本科，新能源方向有地方光伏产业支撑。", employmentRate: 0.86, genderRatio: { male: 48, female: 52 }, avgScore: 475 },
+  { id: 622, name: "南昌工程学院", province: "江西", city: "南昌", type: "理工", level: [], isPublic: true, topMajors: ["水利工程", "土木工程", "电气工程", "水土保持", "计算机科学"], description: "原南昌水专，水利水电是王牌。江西省水利系统的人才基地。", employmentRate: 0.90, genderRatio: { male: 62, female: 38 }, avgScore: 510 },
+  { id: 623, name: "景德镇学院", province: "江西", city: "景德镇", type: "综合", level: [], isPublic: true, topMajors: ["小学教育", "陶瓷设计", "工艺美术", "汉语言文学", "英语"], description: "景德镇市属本科，陶瓷和师范双方向。千年瓷都的文化底蕴加持。", employmentRate: 0.85, genderRatio: { male: 40, female: 60 }, avgScore: 472 }
 ];
 
 // ---------- 各省分数线（近两年）----------
