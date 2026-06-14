@@ -91,8 +91,12 @@ function initUniversityTab() {
     types.map(t => `<option value="${t}">${t}</option>`).join("");
 
   // 绑定事件
-  const debouncedRender = debounce(renderUniversityList, 250);
+  const debouncedRender = debounce(renderUniversityList, 200);
   searchInput.addEventListener("input", debouncedRender);
+  // 按回车立刻搜索
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") { e.preventDefault(); renderUniversityList(); }
+  });
   filterProvince.addEventListener("change", renderUniversityList);
   filterType.addEventListener("change", renderUniversityList);
   filterLevel.addEventListener("change", renderUniversityList);
