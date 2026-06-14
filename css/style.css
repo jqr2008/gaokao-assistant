@@ -667,6 +667,12 @@ body {
   margin-bottom: 12px;
 }
 
+.score-intro-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
 .batch-lines-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));

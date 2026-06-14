@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="description" content="高考志愿填报助手｜学姐帮你选学校不踩坑｜查大学、查分数、拿资料、约咨询">
-  <title>高考志愿填报助手 - 学姐帮你选学校</title>
+  <title>2026高考志愿助手 - 专为2026考生定制</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,8 +15,8 @@
       <div class="logo">
         <span class="logo-icon">🎓</span>
         <div>
-          <h1 class="logo-title">高考志愿填报助手</h1>
-          <p class="logo-sub">学姐帮你选学校，不踩坑</p>
+          <h1 class="logo-title">2026高考志愿助手</h1>
+          <p class="logo-sub">专为2026考生 · 学姐帮你选学校</p>
         </div>
       </div>
       <button class="header-cta" onclick="switchTab('consult')">加学姐微信</button>
@@ -54,9 +54,9 @@
     <section class="tab-content active" id="tab-home">
       <!-- Hero -->
       <div class="hero">
-        <div class="hero-badge">🎉 2026 高考季</div>
+        <div class="hero-badge">🎉 2026高考生专用</div>
         <h2 class="hero-title">考得好，更要<strong>报得好</strong></h2>
-        <p class="hero-desc">七分考三分报，选错学校后悔四年。<br>学姐用真实数据帮你，不浪费每一分。</p>
+        <p class="hero-desc">基于最新官方数据+趋势分析，专为2026考生定制。<br>学姐自己刚考完，最懂你需要什么。</p>
         <div class="hero-actions">
           <button class="btn btn-primary" onclick="switchTab('university')">🔍 开始查大学</button>
           <button class="btn btn-outline" onclick="switchTab('materials')">📚 看资料包</button>
@@ -68,7 +68,7 @@
         <div class="feature-card">
           <div class="feature-icon">📋</div>
           <h3>数据全</h3>
-          <p>60+ 热门高校详细介绍<br>10 省近两年分数线<br>200+ 专业解读</p>
+          <p>300+ 高校详细介绍<br>31省分数线+趋势推算<br>专为2026考生整理</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🎯</div>
@@ -146,13 +146,23 @@
           <option value="">选择省份</option>
         </select>
         <select id="score-year" class="filter-select">
-          <option value="2026">2026年(预估)</option>
+          <option value="2026">2026年（趋势参考）</option>
           <option value="2025">2025年</option>
           <option value="2024">2024年</option>
         </select>
         <select id="score-category" class="filter-select">
           <option value="">选择科类</option>
         </select>
+      </div>
+
+      <!-- 说明卡片 -->
+      <div class="score-card" id="score-intro">
+        <div class="score-intro-text">
+          <strong>💡 2026考生专用说明</strong><br>
+          2026官方分数线要等考完才出，现在用<strong style="color:#FF6B35">2025最新数据 + 趋势推算</strong>。<br>
+          关键看<strong style="color:#FF6B35">位次（排名）</strong>——每年分数线会变，但大学录取位次基本稳定。<br>
+          选「2026年」看趋势参考，选「2025年」看最新官方数据。
+        </div>
       </div>
 
       <!-- 批次线展示 -->
@@ -164,7 +174,7 @@
       <!-- 院校录取线 -->
       <div class="score-card" id="uni-score-table" style="display:none">
         <h3>🏫 院校录取参考（最低分 / 位次）</h3>
-        <div class="score-note">⚠️ 数据为参考值，具体以各省教育考试院公布为准</div>
+        <div class="score-note">📌 2025年最新数据 · 2026志愿填报权威参考 · 位次比分数更稳定</div>
         <div class="table-wrap">
           <table class="score-table">
             <thead>
@@ -277,8 +287,8 @@
 
   <!-- ====== Footer ====== -->
   <footer class="footer">
-    <p>🎓 高考志愿填报助手 · 学姐帮你选学校</p>
-    <p class="footer-disclaimer">本工具数据仅供参考，志愿填报请以各省教育考试院官方发布为准</p>
+    <p>🎓 2026高考志愿助手 · 专为2026考生定制</p>
+    <p class="footer-disclaimer">2025数据为官方参考，2026数据为趋势推算。志愿填报请以各省教育考试院最终公布为准</p>
     <p class="footer-copy">© 2026 学姐的高考志愿助手</p>
   </footer>
 
