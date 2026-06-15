@@ -352,7 +352,6 @@ function renderMaterials() {
 function openBuyModal(materialId) {
   const m = materials.find(mat => mat.id === materialId);
   if (!m) return;
-  const code = UNLOCK_CODES[materialId] || "";
 
   const body = document.getElementById("buy-modal-body");
   body.innerHTML = `
