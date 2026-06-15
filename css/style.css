@@ -601,6 +601,19 @@ body {
 
 .uni-card.expanded .uni-card-detail { display: block; }
 
+.uni-admission-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #FFF8E1, #FFF3E0);
+  border-radius: 8px;
+  border-left: 3px solid var(--orange);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
 .uni-detail-row {
   display: flex;
   gap: 16px;

@@ -103,6 +103,20 @@ function initUniversityTab() {
   filterPublic.addEventListener("change", renderUniversityList);
 }
 
+// 查找大学在各省的录取位次
+function findAdmissionData(uname) {
+  const results = [];
+  for (const prov of Object.keys(uniScores)) {
+    const pData = uniScores[prov]?.["2025"];
+    if (!pData) continue;
+    for (const cat of Object.keys(pData)) {
+      const uni = pData[cat]?.find(s => s.name === uname);
+      if (uni) results.push({ province: prov, category: cat, score: uni.minScore, rank: uni.rank });
+    }
+  }
+  return results;
+}
+
 function renderUniversityList() {
   const listEl = document.getElementById("uni-list");
   const countEl = document.getElementById("uni-count");
@@ -133,6 +147,16 @@ function renderUniversityList() {
   // 渲染卡片
   listEl.innerHTML = result.map(u => {
     const isExpanded = expandedUniId === u.id;
+    const admissions = findAdmissionData(u.name);
+
+    // 生成录取数据行
+    let admissionRows = "";
+    if (admissions.length > 0) {
+      admissionRows = admissions.slice(0, 4).map(a =>
+        `<span title="2025年${a.province}${a.category}录取数据">📌 ${a.province}${a.category}: <strong style="color:#FF6B35">${a.score}分</strong> / <strong>第${a.rank.toLocaleString()}名</strong></span>`
+      ).join("");
+    }
+
     return `
       <div class="uni-card ${isExpanded ? 'expanded' : ''}" id="uni-${u.id}">
         <div class="uni-card-header" onclick="toggleUniCard(${u.id})">
@@ -149,6 +173,7 @@ function renderUniversityList() {
           ${u.topMajors.length > 4 ? `<span class="uni-major-tag">+${u.topMajors.length - 4}更多</span>` : ""}
         </div>
         <div class="uni-card-detail">
+          ${admissionRows ? `<div class="uni-admission-row">${admissionRows}</div>` : ""}
           <div class="uni-detail-row">
             <span>🏛️ ${u.isPublic ? "公办" : "民办"}</span>
             <span>🎯 就业率 ${(u.employmentRate * 100).toFixed(0)}%</span>
