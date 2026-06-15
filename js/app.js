@@ -246,9 +246,11 @@ function updateScoreTab() {
 
   scoreEmpty.style.display = "none";
 
-  // 隐藏说明卡片
+  // 隐藏说明卡片，显示难度卡片
   const introCard = document.getElementById("score-intro");
   if (introCard) introCard.style.display = "none";
+  const diffCard = document.getElementById("score-difficulty");
+  if (diffCard) diffCard.style.display = "block";
 
   // 批次线
   const batchData = getProvinceScores(province, year, category);
