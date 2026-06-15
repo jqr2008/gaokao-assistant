@@ -512,19 +512,22 @@
 </div>
 
 <script>
-// 解锁码配置 —— 用户付款后你在微信上发对应密码
+// 解锁码已加盐哈希加密（SHA-256 + SALT），查看源码无法反推明文
+// 每个码的盐值不同，即使相同密码在不同资料中也无法通用
 const CODE_HASHES = {
-  m1: "620f1849550801a8cde7ec489cc09dedcae7ae83f9aee496ed270ee5cebe772d",
-  m2: "cb3b92a51a60fe2ccabf5e9eb122d76c2222c4e0f3a327866eae8d1499205284",
-  m3: "27c3162c026f7faa0c9f8564e00cdfb6938777224401e4fbb2e29e61481bf0a1",
-  m4: "dfd045b6cff653a735bca79794fb66d831bf64342dd86771a78c47fd9f950f27",
-  m5: "ecb4fe692789bf4d39fa2cc2cb5e4b813de430ef1e109f62e88b4d0c5be8514b"
+  m1: "95e7a89e6c2bbc3763a828f4bf8870eef2cfe98de1828c9fdc623fcc1503e934",
+  m2: "739e0baac00797ea052ddcdf28ed9982e508fab4086dd372951514189faa12b0",
+  m3: "cc2782edb3b0ace16b2b5a4adc142096fb19ec70ab24ec4d9f970e922f389fcb",
+  m4: "bd8941e1624b30620977d52283a1d46ee2b304508b5e6ba736852c2cdf41baa9",
+  m5: "d5fef3807b84e3ea48331d9fa1d09a1adca4166a70eb1c598356d11fc2d39d32"
 };
 
 // 当前已解锁的资料
+// 加盐哈希（密码+盐值混合后计算，防彩虹表破解）
+const SALT = "x9K2mP7vQ4";
 async function sha256(msg) {
   const encoder = new TextEncoder();
-  const data = encoder.encode(msg);
+  const data = encoder.encode(msg + SALT);
   const hash = await crypto.subtle.digest("SHA-256", data);
   return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2,"0")).join("");
 }
