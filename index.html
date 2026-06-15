@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="高考志愿填报助手｜学姐帮你选学校不踩坑｜查大学、查分数、拿资料、约咨询">
+  <meta name="description" content="高考志愿填报助手｜专业志愿指导平台｜查大学、查分数、拿资料、约咨询">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta name="referrer" content="no-referrer">
@@ -19,10 +19,10 @@
         <span class="logo-icon">🎓</span>
         <div>
           <h1 class="logo-title">2026高考志愿助手</h1>
-          <p class="logo-sub">专为2026考生 · 学姐帮你选学校</p>
+          <p class="logo-sub">专业志愿机构 · 数据驱动填报</p>
         </div>
       </div>
-      <button class="header-cta" onclick="switchTab('consult')">加学姐微信</button>
+      <button class="header-cta" onclick="switchTab('consult')">加顾问微信</button>
     </div>
   </header>
 
@@ -76,12 +76,12 @@
         <div class="feature-card">
           <div class="feature-icon">🎯</div>
           <h3>懂你</h3>
-          <p>刚考完的学姐最懂你<br>站在学生视角推荐<br>不推销不制造焦虑</p>
+          <p>深耕志愿填报多年，最懂考生需求<br>基于大数据分析推荐<br>客观中立 拒绝贩卖焦虑</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">💰</div>
           <h3>不贵</h3>
-          <p>资料包一杯奶茶钱<br>一对一咨询一杯火锅钱<br>帮你省下四年后悔</p>
+          <p>资料包一份早餐钱<br>一对一咨询不及一节辅导班<br>省下四年，影响一生</p>
         </div>
       </div>
 
@@ -96,9 +96,9 @@
       <div class="cta-card">
         <div class="cta-icon">🤔</div>
         <h3>还是不知道选什么？</h3>
-        <p>不如直接问问学姐，30 分钟一对一沟通<br>帮你理清思路、避开天坑</p>
-        <button class="btn btn-primary btn-lg" onclick="switchTab('consult')">预约一对一咨询 · ¥49起</button>
-        <p class="cta-note">先咨询再付费，不满意不收费</p>
+        <p>不如让专业团队帮你，30 分钟一对一沟通<br>帮你理清思路、避开天坑</p>
+        <button class="btn btn-primary btn-lg" onclick="switchTab('consult')">预约专业一对一指导 · ¥49起</button>
+        <p class="cta-note">先沟通再付费，免费初步评估</p>
       </div>
     </section>
 
@@ -167,7 +167,7 @@
           关键看<strong style="color:#FF6B35">位次（排名）</strong>——分数线会变，但大学录取位次基本稳定。<br>
           选「2026年」看难度预测，选「2025/2024年」看官方数据对比。<br><br>
           <strong style="color:#e74c3c">📢 出分后24小时内，本页将第一时间更新为2026官方分数线！</strong><br>
-          建议收藏本页，出分当天回来查，学姐熬夜也会帮你更新好。
+          建议收藏本页，出分当天回来查，数据团队第一时间更新数据。
         </div>
       </div>
 
@@ -216,7 +216,7 @@
     <section class="tab-content" id="tab-materials">
       <div class="section-header">
         <h2>📚 志愿填报资料包</h2>
-        <p class="section-desc">学姐精心整理，帮你省去搜索时间</p>
+        <p class="section-desc">专业团队深度调研，帮你省去搜索时间</p>
       </div>
 
       <div class="materials-grid" id="materials-grid"></div>
@@ -230,7 +230,7 @@
       <div class="consult-hero">
         <div class="consult-avatar">👩‍🎓</div>
         <h2>一对一志愿填报咨询</h2>
-        <p>刚考完的学姐，用真实经验帮你</p>
+        <p>专业团队，用海量数据为你护航</p>
       </div>
 
       <!-- 服务内容 -->
@@ -247,7 +247,7 @@
         <div class="pricing-card">
           <div class="pricing-title">📱 微信文字咨询</div>
           <div class="pricing-price">¥49<span>/次</span></div>
-          <div class="pricing-detail">不限时间，把问题发过来<br>学姐看到就会认真回复</div>
+          <div class="pricing-detail">不限时间，把问题发过来<br>专业顾问认真回复每一条咨询</div>
         </div>
         <div class="pricing-card pricing-recommend">
           <div class="pricing-badge">🌟 推荐</div>
@@ -261,13 +261,13 @@
       <form class="consult-form" id="consult-form">
         <h3>📝 预约咨询</h3>
         <input type="text" id="consult-name" placeholder="你的昵称" required>
-        <input type="text" id="consult-wechat" placeholder="微信号（方便学姐联系你）" required>
+        <input type="text" id="consult-wechat" placeholder="微信号（方便顾问联系你）" required>
         <select id="consult-province" required>
           <option value="">你所在的省份</option>
         </select>
         <input type="text" id="consult-score" placeholder="你的预估分数（可选）">
         <textarea id="consult-question" placeholder="想了解什么？比如：想去XX城市、想学计算机、不知道选什么专业..."></textarea>
-        <button type="submit" class="btn btn-primary btn-lg btn-full">提交预约 · 学姐24小时内联系你</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-full">提交预约 · 我们24小时内联系你</button>
       </form>
     </section>
 
@@ -277,7 +277,7 @@
   <div class="floating-cta" id="floating-cta">
     <button class="float-btn" onclick="showWechatModal()">
       <span class="float-icon">💬</span>
-      <span>加学姐微信</span>
+      <span>加顾问微信</span>
     </button>
   </div>
 
@@ -287,7 +287,7 @@
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('wechat-modal')">✕</button>
       <div class="modal-icon">👩‍🎓</div>
-      <h3>加学姐微信</h3>
+      <h3>加顾问微信</h3>
       <p>扫码添加，备注「志愿填报」</p>
       <div class="qrcode-placeholder">
         <img class="qrcode-img" src="img/wechat-qr.jpg" alt="微信二维码">
@@ -310,7 +310,7 @@
   <footer class="footer">
     <p>🎓 2026高考志愿助手 · 专为2026考生定制</p>
     <p class="footer-disclaimer">2025数据为官方参考，2026数据为趋势推算。志愿填报请以各省教育考试院最终公布为准</p>
-    <p class="footer-copy">© 2026 学姐的高考志愿助手</p>
+    <p class="footer-copy">© 2026 高考志愿助手 · 专业指导平台</p>
   </footer>
 
   <!-- ====== 脚本 ====== -->
